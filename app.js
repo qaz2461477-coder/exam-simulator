@@ -75,8 +75,27 @@ function shuffleArray(arr) {
 }
 
 function sampleQuestions(bank, count) {
-  const shuffled = shuffleArray(bank.questions);
-  return shuffled.slice(0, count).map((q) => ({
+  const withImages = bank.questions.filter(q => q.imagePath);
+  const withoutImages = bank.questions.filter(q => !q.imagePath);
+  
+  let selected = [];
+  
+  if (withImages.length > 0) {
+    // 隨機決定要 1 題或 2 題圖片題 (如果有足夠的圖片題)
+    const imageCount = Math.min(withImages.length, Math.floor(Math.random() * 2) + 1);
+    const shuffledWithImages = shuffleArray(withImages);
+    const shuffledWithoutImages = shuffleArray(withoutImages);
+    
+    selected = [
+      ...shuffledWithImages.slice(0, imageCount),
+      ...shuffledWithoutImages.slice(0, count - imageCount)
+    ];
+  } else {
+    selected = shuffleArray(bank.questions).slice(0, count);
+  }
+  
+  // 將選出的題目打亂，並加入元資料
+  return shuffleArray(selected).map((q) => ({
     ...q,
     _type: bank.type,
     _category: bank.category,
@@ -91,7 +110,8 @@ function generateExam() {
     sampleQuestions(state.banks.mechanicalTF, n),
     sampleQuestions(state.banks.mechanicalMC, n),
   ];
-  state.examQuestions = shuffleArray(parts.flat());
+  // 題型依序排列，不跨題型打亂
+  state.examQuestions = parts.flat();
   state.userAnswers = new Array(EXAM_CONFIG.totalQuestions).fill(null);
   state.flagged = new Array(EXAM_CONFIG.totalQuestions).fill(false);
   state.currentIndex = 0;
