@@ -151,7 +151,7 @@ function renderQuestion() {
   if (!imgContainer) {
     imgContainer = document.createElement('div');
     imgContainer.id = 'question-image-container';
-    dom.questionText.parentNode.insertBefore(imgContainer, dom.optionsContainer);
+    dom.questionText.parentNode.appendChild(imgContainer);
   }
   if (q.imagePath) {
     imgContainer.innerHTML = `<img src="${q.imagePath}" alt="題目圖示" class="question-sign-img" onerror="this.parentNode.style.display='none'">`;
