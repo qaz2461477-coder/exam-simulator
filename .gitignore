@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+
+# xlsx 原始題庫（不上傳個人資料）
+# 如果要讓題庫跟著版本一起，請移除下面這行
+# data/
+
+# OS
+.DS_Store
+Thumbs.db

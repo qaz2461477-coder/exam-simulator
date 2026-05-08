@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="駕照模擬考試系統 - 交通法規與機械常識隨機測驗，模擬正式考試流程">
+  <title>駕照模擬考試系統</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ===== 首頁 ===== -->
+  <section id="screen-home" class="screen active">
+    <div class="home-container">
+      <div class="home-hero">
+        <div class="hero-icon">
+          <svg viewBox="0 0 80 80" fill="none">
+            <circle cx="40" cy="40" r="38" stroke="url(#grad1)" stroke-width="3"/>
+            <path d="M25 42L35 52L55 28" stroke="url(#grad1)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs><linearGradient id="grad1" x1="0" y1="0" x2="80" y2="80"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs>
+          </svg>
+        </div>
+        <h1>駕照模擬考試系統</h1>
+        <p class="hero-subtitle">模擬正式考試流程，隨機抽題測驗</p>
+      </div>
+
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="info-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          </div>
+          <div class="info-card-content">
+            <span class="info-card-label">考試題數</span>
+            <span class="info-card-value">40 題</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div class="info-card-content">
+            <span class="info-card-label">時間限制</span>
+            <span class="info-card-value">無限制</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div class="info-card-content">
+            <span class="info-card-label">及格門檻</span>
+            <span class="info-card-value">95 分</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
+          </div>
+          <div class="info-card-content">
+            <span class="info-card-label">每題配分</span>
+            <span class="info-card-value">2.5 分</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exam-structure glass-card">
+        <h2>考試結構</h2>
+        <div class="structure-grid">
+          <div class="structure-item">
+            <span class="structure-badge badge-traffic">交通法規</span>
+            <span class="structure-type">是非題</span>
+            <span class="structure-count">10 題</span>
+          </div>
+          <div class="structure-item">
+            <span class="structure-badge badge-traffic">交通法規</span>
+            <span class="structure-type">選擇題</span>
+            <span class="structure-count">10 題</span>
+          </div>
+          <div class="structure-item">
+            <span class="structure-badge badge-mechanical">機械常識</span>
+            <span class="structure-type">是非題</span>
+            <span class="structure-count">10 題</span>
+          </div>
+          <div class="structure-item">
+            <span class="structure-badge badge-mechanical">機械常識</span>
+            <span class="structure-type">選擇題</span>
+            <span class="structure-count">10 題</span>
+          </div>
+        </div>
+      </div>
+
+      <button id="btn-start" class="btn-primary" disabled>
+        <span class="btn-text">載入題庫中...</span>
+        <span class="btn-spinner"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ===== 考試畫面 ===== -->
+  <section id="screen-exam" class="screen">
+    <div class="exam-container">
+      <!-- 頂部狀態列 -->
+      <div class="exam-header">
+        <div class="exam-progress-info">
+          <span id="exam-current-num">1</span>
+          <span class="exam-separator">/</span>
+          <span id="exam-total-num">40</span>
+        </div>
+        <div class="exam-progress-bar">
+          <div id="exam-progress-fill" class="progress-fill"></div>
+        </div>
+        <div class="exam-header-actions">
+          <button id="btn-flag" class="btn-icon" title="標記此題">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+          </button>
+          <button id="btn-submit-exam" class="btn-submit-exam">交卷</button>
+        </div>
+      </div>
+
+      <!-- 題目卡片 -->
+      <div class="question-card glass-card">
+        <div class="question-meta">
+          <span id="question-category" class="question-category-badge">交通法規</span>
+          <span id="question-type" class="question-type-badge">是非題</span>
+          <span id="question-number" class="question-number-badge">第 1 題</span>
+        </div>
+        <p id="question-text" class="question-text"></p>
+      </div>
+
+      <!-- 選項區 -->
+      <div id="options-container" class="options-container"></div>
+
+      <!-- 導航列 -->
+      <div class="exam-nav">
+        <button id="btn-prev" class="btn-nav" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 19l-7-7 7-7"/></svg>
+          上一題
+        </button>
+        <div class="question-dots" id="question-dots"></div>
+        <button id="btn-next" class="btn-nav">
+          下一題
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 交卷確認 Modal ===== -->
+  <div id="modal-submit" class="modal-overlay">
+    <div class="modal-content glass-card">
+      <h2>確認交卷</h2>
+      <p id="modal-submit-info"></p>
+      <div class="modal-actions">
+        <button id="btn-cancel-submit" class="btn-secondary">繼續作答</button>
+        <button id="btn-confirm-submit" class="btn-primary btn-small">確認交卷</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 結果畫面 ===== -->
+  <section id="screen-result" class="screen">
+    <div class="result-container">
+      <div class="result-hero glass-card">
+        <div id="result-icon" class="result-icon"></div>
+        <div id="result-verdict" class="result-verdict"></div>
+        <div class="result-score-display">
+          <span id="result-score" class="result-score">0</span>
+          <span class="result-score-unit">分</span>
+        </div>
+        <div class="result-details">
+          <div class="result-detail-item">
+            <span class="detail-label">答對</span>
+            <span id="result-correct" class="detail-value correct">0</span>
+          </div>
+          <div class="result-detail-item">
+            <span class="detail-label">答錯</span>
+            <span id="result-wrong" class="detail-value wrong">0</span>
+          </div>
+          <div class="result-detail-item">
+            <span class="detail-label">未作答</span>
+            <span id="result-unanswered" class="detail-value unanswered">0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 各題型正確率 -->
+      <div class="result-breakdown glass-card">
+        <h2>題型分析</h2>
+        <div id="result-categories" class="category-bars"></div>
+      </div>
+
+      <!-- 逐題回顧 -->
+      <div class="result-review glass-card">
+        <h2>逐題回顧</h2>
+        <div id="review-list" class="review-list"></div>
+      </div>
+
+      <div class="result-actions">
+        <button id="btn-retry" class="btn-primary">重新測驗</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
