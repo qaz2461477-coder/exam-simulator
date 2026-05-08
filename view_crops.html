@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { font-family: sans-serif; background: #333; color: white; padding: 20px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 10px; }
+  .item { text-align: center; background: #444; padding: 10px; border-radius: 8px; }
+  img { max-width: 200px; max-height: 200px; }
+</style>
+</head>
+<body>
+  <h1>Cropped Signs</h1>
+  <div class="grid" id="grid">
+  </div>
+  <script>
+    const grid = document.getElementById('grid');
+    for (let i = 226; i <= 250; i++) {
+      const div = document.createElement('div');
+      div.className = 'item';
+      div.innerHTML = `<h3>mc_${i}</h3><img src="images/mc_${i}.png" alt="mc_${i}" />`;
+      grid.appendChild(div);
+    }
+  </script>
+</body>
+</html>

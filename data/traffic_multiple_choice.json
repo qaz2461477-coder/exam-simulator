@@ -2485,7 +2485,8 @@
         "毒性物質。"
       ],
       "answer": 2,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_226.jpg"
     },
     {
       "id": 227,
@@ -2496,7 +2497,8 @@
         "GHS氧化性物質。"
       ],
       "answer": 1,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_227.jpg"
     },
     {
       "id": 228,
@@ -2507,7 +2509,8 @@
         "保持之最短行車安全距離。"
       ],
       "answer": 3,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_228.png"
     },
     {
       "id": 229,
@@ -2518,7 +2521,8 @@
         "注意前方右側落石。"
       ],
       "answer": 3,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_229.jpg"
     },
     {
       "id": 230,
@@ -2529,7 +2533,8 @@
         "有柵欄鐵路平交道。"
       ],
       "answer": 2,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_230.png"
     },
     {
       "id": 231,
@@ -2540,7 +2545,8 @@
         "慢行。"
       ],
       "answer": 1,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_231.png"
     },
     {
       "id": 232,
@@ -2551,7 +2557,8 @@
         "禁止會車。"
       ],
       "answer": 2,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_232.png"
     },
     {
       "id": 233,
@@ -2562,7 +2569,8 @@
         "禁止進入。"
       ],
       "answer": 1,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_233.jpg"
     },
     {
       "id": 234,
@@ -2573,7 +2581,8 @@
         "快速公路省道編號標誌。"
       ],
       "answer": 1,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_234.png"
     },
     {
       "id": 235,
@@ -2584,7 +2593,8 @@
         "禁止超車。"
       ],
       "answer": 1,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_235.png"
     },
     {
       "id": 236,
@@ -2595,7 +2605,8 @@
         "禁止大貨車進入。"
       ],
       "answer": 1,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_236.png"
     },
     {
       "id": 237,
@@ -2606,7 +2617,8 @@
         "車輛總重限制標誌。"
       ],
       "answer": 3,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_237.png"
     },
     {
       "id": 238,
@@ -2617,7 +2629,8 @@
         "GHS急毒性物質。"
       ],
       "answer": 1,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_238.jpg"
     },
     {
       "id": 239,
@@ -2628,7 +2641,8 @@
         "GHS爆炸性物質。"
       ],
       "answer": 2,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_239.png"
     },
     {
       "id": 240,
@@ -2639,7 +2653,8 @@
         "GHS健康危害。"
       ],
       "answer": 2,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_240.png"
     },
     {
       "id": 241,
@@ -2650,7 +2665,8 @@
         "GHS腐蝕性物質。"
       ],
       "answer": 2,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_241.png"
     },
     {
       "id": 242,
@@ -2661,7 +2677,8 @@
         "易燃性氣體。"
       ],
       "answer": 1,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_242.png"
     },
     {
       "id": 243,
@@ -2672,7 +2689,8 @@
         "GHS環境危害。"
       ],
       "answer": 3,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_243.jpg"
     },
     {
       "id": 244,
@@ -2683,7 +2701,8 @@
         "此路段禁止停車。"
       ],
       "answer": 1,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_244.png"
     },
     {
       "id": 245,
@@ -2694,7 +2713,8 @@
         "狹橋。"
       ],
       "answer": 1,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_245.jpg"
     },
     {
       "id": 246,
@@ -2705,7 +2725,8 @@
         "險降坡路段小心駕駛。"
       ],
       "answer": 3,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_246.png"
     },
     {
       "id": 247,
@@ -2716,7 +2737,8 @@
         "道路右側為斷崖。"
       ],
       "answer": 3,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_247.png"
     },
     {
       "id": 248,
@@ -2727,7 +2749,8 @@
         "禁止逆向。"
       ],
       "answer": 1,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_248.png"
     },
     {
       "id": 249,
@@ -2738,7 +2761,8 @@
         "隧道。"
       ],
       "answer": 1,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_249.png"
     },
     {
       "id": 250,
@@ -2749,7 +2773,8 @@
         "天橋。"
       ],
       "answer": 2,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/mc_250.png"
     }
   ]
 }
