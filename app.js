@@ -122,8 +122,24 @@ function renderQuestion() {
   dom.questionType.textContent = q._type === 'trueFalse' ? '是非題' : '選擇題';
   dom.questionNumber.textContent = `第 ${idx + 1} 題`;
 
-  // Question text
-  dom.questionText.textContent = q.question;
+  // Question text（去除 [圖示] 前綴，圖片另外顯示）
+  const displayText = q.question.replace(/^\[圖示\]\s*/, '');
+  dom.questionText.textContent = displayText;
+
+  // Question image
+  let imgContainer = $('#question-image-container');
+  if (!imgContainer) {
+    imgContainer = document.createElement('div');
+    imgContainer.id = 'question-image-container';
+    dom.questionText.parentNode.insertBefore(imgContainer, dom.optionsContainer);
+  }
+  if (q.imagePath) {
+    imgContainer.innerHTML = `<img src="${q.imagePath}" alt="題目圖示" class="question-sign-img" onerror="this.parentNode.style.display='none'">`;
+    imgContainer.style.display = 'flex';
+  } else {
+    imgContainer.innerHTML = '';
+    imgContainer.style.display = 'none';
+  }
 
   // Options
   dom.optionsContainer.innerHTML = '';
@@ -251,6 +267,7 @@ function calculateResults() {
     return {
       index: i,
       question: q.question,
+      imagePath: q.imagePath || null,
       isCorrect,
       userAns,
       userAnswerText,
@@ -333,6 +350,11 @@ function renderResult(results) {
       explanationHTML = `<div class="review-explanation">解析：${r.explanation}</div>`;
     }
 
+    const reviewQuestion = r.question.replace(/^\[圖示\]\s*/, '');
+    const reviewImgHTML = r.imagePath
+      ? `<div class="review-sign-img-wrap"><img src="${r.imagePath}" alt="題目圖示" class="review-sign-img" onerror="this.parentNode.style.display='none'"></div>`
+      : '';
+
     const div = document.createElement('div');
     div.className = `review-item ${statusClass}`;
     div.innerHTML = `
@@ -340,7 +362,8 @@ function renderResult(results) {
         <span class="review-num">#${r.index + 1}</span>
         <span class="review-result-badge ${badgeClass}">${badgeText}</span>
       </div>
-      <div class="review-question">${r.question}</div>
+      ${reviewImgHTML}
+      <div class="review-question">${reviewQuestion}</div>
       ${answersHTML}
       ${explanationHTML}
     `;

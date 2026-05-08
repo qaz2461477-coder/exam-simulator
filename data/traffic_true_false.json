@@ -1356,151 +1356,176 @@
       "id": 226,
       "question": "[圖示] 本標誌為停車再開。",
       "answer": true,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/tf_226.png"
     },
     {
       "id": 227,
       "question": "[圖示] 本標誌為禁止會車。",
       "answer": false,
-      "explanation": "雙向道"
+      "explanation": "雙向道",
+      "imagePath": "images/tf_227.png"
     },
     {
       "id": 228,
       "question": "[圖示] 本標誌為停車間隔距離。",
       "answer": false,
-      "explanation": "保持最短行車安全距離"
+      "explanation": "保持最短行車安全距離",
+      "imagePath": "images/tf_228.png"
     },
     {
       "id": 229,
       "question": "[圖示] 本標誌為禁止超車。",
       "answer": true,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/tf_229.png"
     },
     {
       "id": 230,
       "question": "[圖示] 左圖為國道標誌。",
       "answer": false,
-      "explanation": "快速公路省道編號標誌"
+      "explanation": "快速公路省道編號標誌",
+      "imagePath": "images/tf_230.png"
     },
     {
       "id": 231,
       "question": "[圖示] 本標誌為道路封閉標誌。",
       "answer": false,
-      "explanation": "道路施工標誌"
+      "explanation": "道路施工標誌",
+      "imagePath": "images/tf_231.png"
     },
     {
       "id": 232,
       "question": "[圖示] 本標誌為道路崎嶇。",
       "answer": false,
-      "explanation": "路面顛簸"
+      "explanation": "路面顛簸",
+      "imagePath": "images/tf_232.png"
     },
     {
       "id": 233,
       "question": "[圖示] 本標誌為禁止臨時停車。",
       "answer": true,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/tf_233.png"
     },
     {
       "id": 234,
       "question": "[圖示] 本標誌為禁止會車。",
       "answer": true,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/tf_234.png"
     },
     {
       "id": 235,
       "question": "[圖示] 本標誌為禁止大貨車進入。",
       "answer": false,
-      "explanation": "禁止大貨車及聯結車進入"
+      "explanation": "禁止大貨車及聯結車進入",
+      "imagePath": "images/tf_235.png"
     },
     {
       "id": 236,
       "question": "[圖示] 本標誌為刺激性物質。",
       "answer": false,
-      "explanation": "危險路段小心駕駛"
+      "explanation": "危險路段小心駕駛",
+      "imagePath": "images/tf_236.png"
     },
     {
       "id": 237,
       "question": "[圖示] 本標誌為前方有幹道，幹道車輛優先通行。",
       "answer": true,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/tf_237.png"
     },
     {
       "id": 238,
       "question": "[圖示] 本標誌為險降坡路段小心駕駛。",
       "answer": true,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/tf_238.png"
     },
     {
       "id": 239,
       "question": "[圖示] 左圖為GHS爆炸性物質標示。",
       "answer": true,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/tf_239.png"
     },
     {
       "id": 240,
       "question": "[圖示] 左圖為GHS燃燒性物質標示。",
       "answer": false,
-      "explanation": "氧化性物質標示"
+      "explanation": "氧化性物質標示",
+      "imagePath": "images/tf_240.png"
     },
     {
       "id": 241,
       "question": "[圖示] 左圖為GHS刺激性物質標示。",
       "answer": false,
-      "explanation": "健康危害標示"
+      "explanation": "健康危害標示",
+      "imagePath": "images/tf_241.png"
     },
     {
       "id": 242,
       "question": "[圖示] 左圖為GHS腐蝕性物質標示。",
       "answer": true,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/tf_242.png"
     },
     {
       "id": 243,
       "question": "[圖示] 左圖為GHS刺激性物質標示。",
       "answer": true,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/tf_243.png"
     },
     {
       "id": 244,
       "question": "[圖示] 左圖為GHS環境危害物質標示。",
       "answer": true,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/tf_244.png"
     },
     {
       "id": 245,
       "question": "[圖示] 本標誌為禁止聯結車進入。",
       "answer": true,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/tf_245.png"
     },
     {
       "id": 246,
       "question": "[圖示] 本標誌為注意強風。",
       "answer": true,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/tf_246.png"
     },
     {
       "id": 247,
       "question": "[圖示] 本標誌為循跡防滑故障。",
       "answer": false,
-      "explanation": "注意路滑"
+      "explanation": "注意路滑",
+      "imagePath": "images/tf_247.png"
     },
     {
       "id": 248,
       "question": "[圖示] 本標誌為當心行人。",
       "answer": false,
-      "explanation": "當心兒童"
+      "explanation": "當心兒童",
+      "imagePath": "images/tf_248.png"
     },
     {
       "id": 249,
       "question": "[圖示] 本標誌為此路不通。",
       "answer": true,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/tf_249.png"
     },
     {
       "id": 250,
       "question": "[圖示] 本標誌為避車彎。",
       "answer": true,
-      "explanation": null
+      "explanation": null,
+      "imagePath": "images/tf_250.png"
     }
   ]
 }
