@@ -1378,7 +1378,7 @@
       "question": "[圖示] 本標誌為禁止超車。",
       "answer": true,
       "explanation": null,
-      "imagePath": "images/tf_229.png"
+      "imagePath": "images/tf_229.jpg"
     },
     {
       "id": 230,
@@ -1399,7 +1399,7 @@
       "question": "[圖示] 本標誌為道路崎嶇。",
       "answer": false,
       "explanation": "路面顛簸",
-      "imagePath": "images/tf_232.png"
+      "imagePath": "images/tf_232.jpg"
     },
     {
       "id": 233,
@@ -1427,7 +1427,7 @@
       "question": "[圖示] 本標誌為刺激性物質。",
       "answer": false,
       "explanation": "危險路段小心駕駛",
-      "imagePath": "images/tf_236.png"
+      "imagePath": "images/tf_236.jpg"
     },
     {
       "id": 237,
@@ -1448,21 +1448,21 @@
       "question": "[圖示] 左圖為GHS爆炸性物質標示。",
       "answer": true,
       "explanation": null,
-      "imagePath": "images/tf_239.png"
+      "imagePath": "images/tf_239.jpg"
     },
     {
       "id": 240,
       "question": "[圖示] 左圖為GHS燃燒性物質標示。",
       "answer": false,
       "explanation": "氧化性物質標示",
-      "imagePath": "images/tf_240.png"
+      "imagePath": "images/tf_240.jpg"
     },
     {
       "id": 241,
       "question": "[圖示] 左圖為GHS刺激性物質標示。",
       "answer": false,
       "explanation": "健康危害標示",
-      "imagePath": "images/tf_241.png"
+      "imagePath": "images/tf_241.jpg"
     },
     {
       "id": 242,
