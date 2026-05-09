@@ -59,6 +59,17 @@
     },
     {
       "id": 6,
+      "question": "3.5頓載重車變速箱油為：",
+      "options": [
+        "SAE 80W/90",
+        "SAE 15W/40 CD級",
+        "TRANSYND合成油"
+      ],
+      "answer": 3,
+      "explanation": null
+    },
+    {
+      "id": 7,
       "question": "3.5噸載重車加力箱係何種油品？",
       "options": [
         "DOT-3號",
@@ -69,7 +80,18 @@
       "explanation": null
     },
     {
-      "id": 7,
+      "id": 8,
+      "question": "3.5噸載重車二級維保，依裝備保養卡實施S保養勤務為：",
+      "options": [
+        "每月",
+        "每季",
+        "每半年"
+      ],
+      "answer": 3,
+      "explanation": null
+    },
+    {
+      "id": 9,
       "question": "汽車夜間行駛高速公路，若同向前方多少公尺內有車輛行駛，應使用近光燈：",
       "options": [
         "50公尺",
@@ -77,28 +99,6 @@
         "300公尺"
       ],
       "answer": 2,
-      "explanation": null
-    },
-    {
-      "id": 8,
-      "question": "3.5載重車煞車添加：",
-      "options": [
-        "DOT-3號煞車油",
-        "不需添加煞車油",
-        "矽酮煞車油"
-      ],
-      "answer": 1,
-      "explanation": "空氣煞車，但液壓輔助"
-    },
-    {
-      "id": 9,
-      "question": "引擎發動後，再按馬達開關，容易損壞：",
-      "options": [
-        "發電機",
-        "馬達開關",
-        "飛輪上的齒輪"
-      ],
-      "answer": 3,
       "explanation": null
     },
     {
@@ -120,7 +120,7 @@
         "貨物上不得載人",
         "不載貨時可隨車作業人員"
       ],
-      "answer": 3,
+      "answer": 1,
       "explanation": null
     },
     {
@@ -136,14 +136,14 @@
     },
     {
       "id": 13,
-      "question": "3.5噸載重車油箱容量剩餘：",
+      "question": "3.5噸載重車油箱容量剩餘： 時，油量錶警示燈會亮起。",
       "options": [
-        "2026-01-08 00:00:00",
-        "2026-01-06 00:00:00",
-        "2026-01-05 00:00:00"
+        "1/8",
+        "1/6",
+        "1/5"
       ],
-      "answer": 3,
-      "explanation": "時，油量缺警示燈會亮起。"
+      "answer": 1,
+      "explanation": null
     },
     {
       "id": 14,
@@ -164,7 +164,7 @@
         "定期保養時排水",
         "每日行駛後至少需排水一次。"
       ],
-      "answer": 3,
+      "answer": 1,
       "explanation": null
     },
     {
@@ -296,7 +296,7 @@
         "24",
         "36 伏特"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": null
     },
     {
@@ -307,7 +307,7 @@
         "ON",
         "ACC 可操作故障碼。"
       ],
-      "answer": 3,
+      "answer": 2,
       "explanation": null
     },
     {
@@ -340,7 +340,7 @@
         "尾車",
         "救濟車"
       ],
-      "answer": 3,
+      "answer": 2,
       "explanation": null
     },
     {
@@ -406,7 +406,7 @@
         "並聯",
         "串並聯"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": null
     },
     {
@@ -461,7 +461,7 @@
         "12",
         "15 度"
       ],
-      "answer": 3,
+      "answer": 1,
       "explanation": null
     },
     {
@@ -472,7 +472,7 @@
         "下長陡坡路段",
         "以上皆是"
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": null
     },
     {
@@ -549,7 +549,7 @@
         "未入檔",
         "手煞車未放下"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": null
     },
     {
@@ -571,7 +571,7 @@
         "啟動馬達",
         "總燈系"
       ],
-      "answer": 3,
+      "answer": 2,
       "explanation": null
     },
     {
@@ -612,10 +612,10 @@
       "question": "3.5噸載重車YH1000動力尾門下降速度不可超過每秒：",
       "options": [
         "0.25",
-        "1.15",
+        "1.1499999999999999",
         "0.15 公尺"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": null
     },
     {
@@ -703,7 +703,7 @@
         "珠油門時效果更佳",
         "離合器踩下時煞車效果變壞"
       ],
-      "answer": 3,
+      "answer": 2,
       "explanation": null
     },
     {
@@ -714,7 +714,7 @@
         "馬達動力",
         "動力方向機液壓泵"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": null
     },
     {
@@ -769,7 +769,7 @@
         "13000磅",
         "12000磅"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": null
     },
     {
@@ -890,7 +890,7 @@
         "綠色",
         "紅色"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": null
     },
     {
@@ -1000,7 +1000,7 @@
         "機械式",
         "渦輪增壓式"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": null
     },
     {
@@ -1044,7 +1044,7 @@
         "滅火器",
         "輪胎套筒"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": null
     },
     {
@@ -1110,7 +1110,7 @@
         "行駛時",
         "抱救時"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": null
     },
     {
@@ -1275,7 +1275,7 @@
         "每季",
         "每半年"
       ],
-      "answer": 3,
+      "answer": 1,
       "explanation": null
     },
     {

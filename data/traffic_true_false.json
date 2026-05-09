@@ -6,7 +6,7 @@
       "id": 1,
       "question": "汽車依其使用目的分為自用與營業二類。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 2,
@@ -29,7 +29,7 @@
     {
       "id": 5,
       "question": "大型車裝設之行車紀錄器無法正常運作,仍繼續行車者,處汽車所有人9,000元以上18,000元以下罰鍰。",
-      "answer": false,
+      "answer": true,
       "explanation": "(處18-1)"
     },
     {
@@ -54,12 +54,12 @@
       "id": 9,
       "question": "汽車駕駛人拒絕接受酒精濃度測試之檢定者,處新臺幣18萬元罰鍰,並當場移置保管該汽車及吊銷該駕駛執照。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 10,
       "question": "汽車駕駛人因酒精濃度超過規定標準駕車,被處吊銷駕駛執照,於十年內第二次違反者,依其駕駛車輛所定罰鍰最高額處罰之,第三次以上者按前次違反本項所處罰鍰金額加罰新臺幣9萬元,並均應當場移置保管該汽機車、吊銷其駕駛執照及施以道路交通安全講習,公路主管機關得公佈其姓名照片及違法事實;如肇事致人重傷或死亡者,吊銷其駕駛執照,並不得再考領。",
-      "answer": false,
+      "answer": true,
       "explanation": "(處35)"
     },
     {
@@ -72,7 +72,7 @@
       "id": 12,
       "question": "車輛裝卸油料時引擎須熄火,並嚴禁吸煙,同時將接地鍊接上。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 13,
@@ -84,13 +84,13 @@
       "id": 14,
       "question": "行經高速公路之載重貨車,因超載逾百分之二十,而無法當場卸貨分裝者,經舉發後,未改正繼續行駛者,得連續舉發處罰。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 15,
       "question": "汽車檢驗分為申請牌照檢驗、定期檢驗及臨時檢驗三種。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 16,
@@ -102,12 +102,12 @@
       "id": 17,
       "question": "領有大貨車駕駛執照者,得駕駛小型車及輕型機車。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 18,
       "question": "已辦理報廢登記之汽車仍行駛者,處汽車所有人罰鍰,並禁止其行駛外,車輛並沒入。",
-      "answer": false,
+      "answer": true,
       "explanation": "(處12)"
     },
     {
@@ -119,20 +119,20 @@
     {
       "id": 20,
       "question": "汽車駕駛人在道路收費停車處所停車,未依規定繳費,主管機關應書面通知駕駛人於7日內補繳,並收取必要之工本費用,逾期再不繳納,處新臺幣300元罰鍰。",
-      "answer": false,
+      "answer": true,
       "explanation": "(處27)"
     },
     {
       "id": 21,
       "question": "車輛行經下坡路段時將引擎熄火、空檔滑行者處新臺幣600元~1200元罰鍰。",
-      "answer": false,
+      "answer": true,
       "explanation": "(處51)"
     },
     {
       "id": 22,
       "question": "汽車駕駛人駕駛汽車,利用汽車犯罪,經判決有期徒刑以上之刑確定,吊銷其駕駛執照。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 23,
@@ -143,25 +143,25 @@
     {
       "id": 24,
       "question": "汽車駕駛人駕駛汽車,行車速度超過規定之最高時速40公里以上者,處新臺幣6,000元以上36,000元以下罰鍰,並當場禁止其駕駛。",
-      "answer": false,
+      "answer": true,
       "explanation": "(處43)"
     },
     {
       "id": 25,
       "question": "柴油引擎車輛排放粒狀污染物,檢驗時不得超過60%。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 26,
       "question": "汽車駕駛人行經行人穿越道，不依規定讓行人優先通行，因而致人受傷或死亡，依法應負刑事責任者，加重其刑至二分之一。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 27,
       "question": "汽車駕駛人駕駛汽車肇事非遇突發狀況，行駛途中任意驟然減速、煞車或車道暫停，因而肇事者，吊銷其駕駛執照。",
-      "answer": false,
+      "answer": true,
       "explanation": "(處43)"
     },
     {
@@ -173,7 +173,7 @@
     {
       "id": 29,
       "question": "汽車行駛於高速公路、快速道路，未依規定行駛車道，處新臺幣3,000元～6,000元罰鍰。",
-      "answer": false,
+      "answer": true,
       "explanation": "(處33)"
     },
     {
@@ -186,7 +186,7 @@
       "id": 31,
       "question": "自用拖車使用證每3年換發1次，機車行車執照每2年換發1次。102.1.1起免申請換發。",
       "answer": false,
-      "explanation": null
+      "explanation": "X"
     },
     {
       "id": 32,
@@ -198,7 +198,7 @@
       "id": 33,
       "question": "車輛車身顏色，救護車漆白色，並應於車身兩側標示紅十字。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 34,
@@ -209,7 +209,7 @@
     {
       "id": 35,
       "question": "高速公路內側車道為超車道，超車後，如有安全距離未駛回原車道，致堵塞超車道行車者，處汽車駕駛人新臺幣6千元以上1萬2千元以下罰鍰。",
-      "answer": false,
+      "answer": true,
       "explanation": "(處33)"
     },
     {
@@ -234,25 +234,25 @@
       "id": 39,
       "question": "貨車裝載貨物，必須在底板分配平均，不得前伸超過車頭以外。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 40,
       "question": "軍車車輛故障時，人員應穿著反光背心及交管棒，於車流安全前提下，適時由車長協助車輛後方擺放三角警告標誌。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 41,
       "question": "汽車自交流道、服務區或休息站進入主線車道時,應先利用右側加速車道逐漸增加車速,並判明交通情況確達安全距離,方得駛入主線道。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 42,
       "question": "匝道指交流道中為加減速車道及主線車道與其他道路間之連接部份。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 43,
@@ -270,19 +270,19 @@
       "id": 45,
       "question": "標誌係指管制道路交通,表示警告、禁制、指示,而以文字或圖案繪製之標牌。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 46,
       "question": "汽車駕駛人,因違反道路交通管理處罰條例及道路交通安全規則之規定,受吊銷駕駛執照處分時,吊銷其持有各級車類之駕駛執照。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 47,
       "question": "汽車行經坡道,上坡時不得蛇行前進,下坡時不得將引擎熄火,放空檔滑行。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 48,
@@ -306,7 +306,7 @@
       "id": 51,
       "question": "裝載危險物品車輛停放,嚴禁在橋樑、隧道、火場一百公尺範圍內停車。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 52,
@@ -317,50 +317,50 @@
     {
       "id": 53,
       "question": "駕駛汽車時,不禮讓行人優先通行者,處新臺幣1,200元~6,000元之罰鍰。",
-      "answer": false,
+      "answer": true,
       "explanation": "(處44)"
     },
     {
       "id": 54,
       "question": "駕駛大眾捷運系統車輛駕駛人,應持有小型車以上職業駕駛執照。",
-      "answer": false,
+      "answer": true,
       "explanation": "(道安61-1)"
     },
     {
       "id": 55,
       "question": "駕駛執照吊扣期間駕駛大客車者,汽車所有人及駕駛人各處新臺幣4萬元以上8萬元以下罰鍰,並吊銷其駕駛執照。",
-      "answer": false,
+      "answer": true,
       "explanation": "(處21-1)"
     },
     {
       "id": 56,
       "question": "經核准開放行駛於快速公路之大型重型機車,應全天開啟頭燈。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 57,
       "question": "煞車時的反應距離加煞車距離,叫做停車距離。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 58,
       "question": "汽車駕駛人拒絕停車接受(臨檢)稽查而逃逸者,處新臺幣一萬到三萬元罰鍰",
-      "answer": false,
+      "answer": true,
       "explanation": "(處60)"
     },
     {
       "id": 59,
       "question": "貨車裝載貨物,不得超過核定之總重量或行駛橋樑規定之載重限制。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 60,
       "question": "在無其他標誌、標線禁止或指示下,圓形綠燈表示准許車輛直行或左、右轉。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 61,
@@ -372,7 +372,7 @@
       "id": 62,
       "question": "加速車道指設於匝道與主線車道之間,專供汽車由匝道駛入主線車道前加速之車道",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 63,
@@ -384,13 +384,13 @@
       "id": 64,
       "question": "禁制標線係用以表示道路上之遵行、禁止、限制等特殊規定,告示駕駛人及行人嚴格遵守。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 65,
       "question": "汽車駕駛人停車時,在禁止臨時停車處所停車者,處新臺幣600元~1,200元罰鍰。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 66,
@@ -402,7 +402,7 @@
       "id": 67,
       "question": "汽車裝載貨物超過所行駛橋樑規定之載重限制者,除責令或當場禁止通行,並處罰鍰新臺幣一萬元,並另依其超載程度採取分級加重處罰,且無處罰上限。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 68,
@@ -426,13 +426,13 @@
       "id": 71,
       "question": "汽車駕駛人,一年內記違規點數達六點者,得申請自費道路交通安全講習課程。完成講習後,抵扣違規點數二點;其抵扣,自記違規點數達六點之日起算,一年內以兩次為限。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 72,
       "question": "四車道以上道路,其設有劃分島劃分快慢車道,在慢車道上行駛之車輛不得左轉。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 73,
@@ -444,7 +444,7 @@
       "id": 74,
       "question": "閃光紅燈設於鐵路平交道時,視為紅燈,車輛及行人應停止前進等候火車通過。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 75,
@@ -462,13 +462,13 @@
       "id": 77,
       "question": "閃光紅燈設於交岔路口,表示車輛及行人應先停止,視交通情況以定行止。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 78,
       "question": "駕駛人除應遵守交通標誌標線及號誌之指示外,並應服從交通警察或依法令執行交通稽查任務人員之指揮。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 79,
@@ -480,31 +480,31 @@
       "id": 80,
       "question": "行人穿越道是指在道路上以枕木紋或斑馬紋之標線標畫,供行人穿越道路之地方。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 81,
       "question": "汽車駕駛人不得連續駕駛八小時。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 82,
       "question": "汽車在雙車道行駛時,如中心線係虛線者,在超車時可以超越,但不得併行駛駛。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 83,
       "question": "單車執勤中於道路上發生故障,若故障無法即時排除,應聯繫地區合約廠商,將車輛拖吊至附近營區或合約廠商檢修。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 84,
       "question": "交岔路口無警察指揮,又無燈光號誌,如兩路均為支線道或幹線道時,左方車應讓右方車先行。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 85,
@@ -516,7 +516,7 @@
       "id": 86,
       "question": "在四車道上,小型汽車內外側車道均可行駛。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 87,
@@ -528,7 +528,7 @@
       "id": 88,
       "question": "汽車在四車道上行駛,除準備停車或臨時停車外,不得駛出快車道邊緣或跨線行駛",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 89,
@@ -540,7 +540,7 @@
       "id": 90,
       "question": "車輛除行駛於單行道外,應靠右行駛,但遇有特殊情況,必須行駛左側道路時,應減速慢行,並注意前方來車。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 91,
@@ -552,7 +552,7 @@
       "id": 92,
       "question": "掛車車廂，未經核准領用之牌照，汽機車所有人罰鍰並禁止其行駛。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 93,
@@ -564,7 +564,7 @@
       "id": 94,
       "question": "超車時，應由前車左邊保持半公尺以上之間隔，加速超過，行至安全距離後，再行駛入原行駛路線。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 95,
@@ -588,31 +588,31 @@
       "id": 98,
       "question": "未領有大貨車駕駛執照，駕駛大客車、聯結車，或領有大客車駕駛執照，駕駛聯結車者，汽車所有人及駕駛人各處罰鍰外，並禁止該汽車駕駛人繼續駕駛及扣留車輛牌照。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 99,
       "question": "汽車按鳴喇叭，應以單響為原則。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 100,
       "question": "交通標誌及標線，是表示警告、禁制、指示等功效。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 101,
       "question": "在未劃有分向限制線或行車分向線之道路或鐵路平交道或不良道路交會時，應減速慢行。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 102,
       "question": "消防車、救護車、警備車及工程救險車執行任務時，其行車速度不受標誌、標線及號誌指示之限制。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 103,
@@ -624,7 +624,7 @@
       "id": 104,
       "question": "行車紀錄卡依規定保存1年，違者處新臺幣9,000元~12,000元罰鍰。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 105,
@@ -636,19 +636,19 @@
       "id": 106,
       "question": "在山路行車交會時，靠山壁車輛，應讓道路外緣車優先通過。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 107,
       "question": "汽車在迴轉時，應暫停並顯示左轉燈光或手勢，看清無來往車輛，並注意行人通過，始得迴轉。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 108,
       "question": "枕木紋行人穿越道線，設置於交岔路口。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 109,
@@ -666,19 +666,19 @@
       "id": 111,
       "question": "小客車座位包括駕駛人在內為九座以下。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 112,
       "question": "前行車駕駛人，聞後行車按鳴喇叭，如車前路況無障礙，應即減速靠邊過表示允讓。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 113,
       "question": "斑馬紋行人穿越道線，設置於道路中段行人穿越頗多之地點。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 114,
@@ -690,7 +690,7 @@
       "id": 115,
       "question": "汽車在彎道、狹路、陡坡、單行道等，或交通頻繁處，不得倒車。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 116,
@@ -702,13 +702,13 @@
       "id": 117,
       "question": "變換車道應及早開啟方向燈，並注意鄰近車道車輛動向以策安全。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 118,
       "question": "設有左右轉彎專用車道之交岔路口，直行車不得佔用轉彎車道。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 119,
@@ -732,7 +732,7 @@
       "id": 122,
       "question": "未領有駕駛執照駕車者，與持有小型車駕駛執照駕駛聯結車、大客車、大貨車者，均應以罰鍰並禁止其駕駛，扣留其車輛牌照。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 123,
@@ -744,7 +744,7 @@
       "id": 124,
       "question": "標誌是指管制道路交通，表示警告、禁制、指示，而以文字或圖案繪製之標牌。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 125,
@@ -762,7 +762,7 @@
       "id": 127,
       "question": "國軍特種車輛，除緊急特殊情況外，不能作行政使用。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 128,
@@ -780,19 +780,19 @@
       "id": 130,
       "question": "載運五五加侖油桶時，第一排油桶不可剛好平行密接，應將各桶之間隔加大，而以第二排油桶崁入間隙以求穩固。(陸軍運輸部隊勤務手冊6-370)",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 131,
       "question": "載運「火箭彈」彈藥時，彈頭應朝向兩側。(國軍批號彈藥勤務教範3-220)",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 132,
       "question": "車輛行至未劃分幹、支線道或同為幹線道或支線道者，左方車輛應暫停，讓右方車先行。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 133,
@@ -804,7 +804,7 @@
       "id": 134,
       "question": "汽車起火時，應用滅火器、泥沙或用水浸棉被衣服覆蓋撲滅。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 135,
@@ -822,19 +822,19 @@
       "id": 137,
       "question": "載運油料之車輛後車身嚴禁乘坐人員。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 138,
       "question": "警告標誌設置位置與警告標的物起點之距離，應配合行車速率，自45公尺至200公尺為準，若受實際情形限制，得酌予變更，並不得少於安全停車視距。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 139,
       "question": "減速車道指設於主線出口最右側，供汽車駛離主線時減速之車道。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 140,
@@ -846,7 +846,7 @@
       "id": 141,
       "question": "高速公路係指其出入口完全控制，並與其他道路立體相交，專供汽車行駛之公路。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 142,
@@ -858,7 +858,7 @@
       "id": 143,
       "question": "高速公路四線道之左線車道專供右線車輛超越前車行駛，超越後應駛回外線車道。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 144,
@@ -870,19 +870,19 @@
       "id": 145,
       "question": "裝載彈藥之車輛，需將車內所有外露金屬以蓬布、廢棉被等物料覆蓋。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 146,
       "question": "在高速行車狀況下，輪胎易生高熱及波狀變形，需要定期檢查輪胎以防止輪胎爆破。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 147,
       "question": "凡依規定辦理投保之軍用車輛發生交通事故，致第三人體傷、殘廢、死亡及財物毀損等意外事故，依法應負賠償責任而受賠償請求，由承保公司負責賠償。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 148,
@@ -894,7 +894,7 @@
       "id": 149,
       "question": "車禍肇事應保持現場，救人第一為原則。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 150,
@@ -906,7 +906,7 @@
       "id": 151,
       "question": "未領有駕照擅自開軍車肇事，由車屬單位自行負責賠償。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 152,
@@ -918,7 +918,7 @@
       "id": 153,
       "question": "軍車保險賠償基準，第三責任險之死亡或體傷，依交通事故過失責任比例，每人最高賠償新臺幣200萬元整。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 154,
@@ -942,31 +942,31 @@
       "id": 157,
       "question": "駕駛三種基本動作就是看、想、做。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 158,
       "question": "安全駕駛五要訣是要求你睜大眼睛，放寬目視範圍，儘量提高注意力，並要求你保持行車間的安全距離，來避免麻煩保護自身的安全。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 159,
       "question": "開車抬頭遠看簡單的解釋就是不要把眼光放太近，應該把前視注意力投放在按現行速度估算15秒所到達的地方，這15秒的時間即所謂目視前置時間。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 160,
       "question": "車速越快，能反應的時間越短。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 161,
       "question": "依交通法規大貨車車身長不得超過12公尺。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 162,
@@ -990,7 +990,7 @@
       "id": 165,
       "question": "保持適當的安全距離是預防前後車及鄰車相撞最好的方法。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 166,
@@ -1002,13 +1002,13 @@
       "id": 167,
       "question": "四秒鐘法則，其中包括反應時間一秒、緩衝時間二秒、剎車時間一秒共四秒。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 168,
       "question": "一般車身法剎車距離是需考慮天候、速度。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 169,
@@ -1026,25 +1026,25 @@
       "id": 171,
       "question": "平穩駕駛的優點是節省燃料消耗、減少輪胎及驅動系統磨損，降低駕駛的緊張。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 172,
       "question": "其他車輛接近你車時，雙方車速愈接近或相等則愈安全。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 173,
       "question": "載運貨物不得超過車輛總重量，且重量必須在後車身分配平均。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 174,
       "question": "開車自十字路口右轉彎，未建立安全邊際而造成一輛汽車被挾擠在你的車及人行道之間，謂之轉彎擠撞事件。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 175,
@@ -1056,19 +1056,19 @@
       "id": 176,
       "question": "右轉彎最好的方法是利用右側道路攔阻右側交通。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 177,
       "question": "眼看口誦駕駛訓練法是駕駛一車輛在道路行駛時，以言語傳述表達的方式，大聲的朗誦你所看到的一切有關事物。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 178,
       "question": "眼看口誦駕駛訓練法，經默誦這些安全駕駛動作可加深印象。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 179,
@@ -1092,7 +1092,7 @@
       "id": 182,
       "question": "決定摩擦力增減的四個因素為路面類別與性質、路面狀況、輪胎情形與行車速度。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 183,
@@ -1104,37 +1104,37 @@
       "id": 184,
       "question": "情緒受到壓力會影響判斷力造成車禍的發生。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 185,
       "question": "速度不同的車輛可能是最危險的。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 186,
       "question": "衝突點是指一輛車或一行人行進路線與另一輛車或行人行進路線相交叉的地點。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 187,
       "question": "使用移動式行車影音記錄器，行駛前應確認機體固定良好，且完成開機後需保持螢幕恆亮，始可出勤。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 188,
       "question": "牌照吊扣期間行駛，處汽車所有人新臺幣3,600元以上10,800元以下罰鍰，並禁止其行駛。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 189,
       "question": "所謂鮮綠燈，是指接近交叉路口、親眼見到號誌變為綠燈之燈號。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 190,
@@ -1146,43 +1146,43 @@
       "id": 191,
       "question": "軍車出勤使用移動式行車影音記錄器，應由車長不定期以「目視」方式確認「電源」是否正常，且是否持續錄影。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 192,
       "question": "號誌燈轉紅燈，你仍在十字路口中心應繼續前進。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 193,
       "question": "汽車所有人，明知汽車駕駛人吐氣所含酒精濃度超過每公升0.15毫克以上，而不予禁止駕駛者，處新臺幣3萬元以上12萬元以下之罰鍰，並吊扣該汽車牌照二年。",
-      "answer": false,
+      "answer": true,
       "explanation": "(處35)"
     },
     {
       "id": 194,
       "question": "兩輛(含)以上之車隊，由資深士官(上士含以上)領隊。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 195,
       "question": "高速公路、快速公路內車道為超車道，超車後，未駛回原車道者將被處罰鍰。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 196,
       "question": "112年新修正規定，汽車駕駛人超過規定之最高時速40公里以上者，加重處罰。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 197,
       "question": "90年9月1日起，執行開車、騎機車不能使用手持式電話。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 198,
@@ -1194,13 +1194,13 @@
       "id": 199,
       "question": "95年新修正規定，小客車附載4歲且體重在18公斤以下之幼童，未依規定安置在安全座椅者，處汽車駕駛人新臺幣1,500元以上3,000元以上罰鍰。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 200,
       "question": "汽車駕駛人駕駛汽車肇事致人受傷而逃逸者吊銷駕照，如致人重傷或死亡逃逸者，吊銷駕照並終身不得考領。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 201,
@@ -1212,7 +1212,7 @@
       "id": 202,
       "question": "在交叉路口，公共汽車招呼站十公尺內不得臨時停車。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 203,
@@ -1224,7 +1224,7 @@
       "id": 204,
       "question": "黃色網狀線係用以告示車輛駕駛人禁止臨時停車。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 205,
@@ -1248,7 +1248,7 @@
       "id": 208,
       "question": "汽車行駛於高速公路、快速道路等，裝置貨物未依規定覆蓋、捆紮，處汽車駕駛人新臺幣3,000元以上6,000元以下罰鍰。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 209,
@@ -1260,7 +1260,7 @@
       "id": 210,
       "question": "汽車裝載貨物超過規定之長度、寬度、高度，因而致人受傷者，除處罰鍰外，並吊扣一年其駕駛執照。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 211,
@@ -1272,19 +1272,19 @@
       "id": 212,
       "question": "汽車行駛高速公路，前後兩車之間安全行車距離，大型車為速率每小時公里數值減20，單位為公尺。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 213,
       "question": "白實線配合白虛線者，在實線的一面之車輛禁止變換車道。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 214,
       "question": "軍車回場後，駕駛、車長立即向集用場調度人員實施回場報告，並同時檢視移動式行車影音記錄器錄影畫面；錄影畫面均無異常或肇生交通事故，始可刪除畫面繳回。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 215,
@@ -1296,13 +1296,13 @@
       "id": 216,
       "question": "散裝發射藥裝車時，必須搭車蓬，車廂前後應以前、後擋布遮蔽，避免火種及日光直射，隨時注意溫度、濕度、通風等變化。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 217,
       "question": "標誌之顏色，黃色表示警告，用於方向導引標誌及警告性質告示牌之底色。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 218,
@@ -1320,13 +1320,13 @@
       "id": 220,
       "question": "高速公路、快速公路內側車道應為超車道，超車後，如有安全距離未駛回原車道，至堵塞超車道行車者，處汽車駕駛人新臺幣6千元以上1萬2千元以下罰鍰。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 221,
       "question": "汽車駕駛人，駕車行經測試檢定酒精濃度超過規定標準者，處罰鍰外應當場移置保管該汽車及吊扣其駕駛執照一至二年。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 222,
@@ -1338,7 +1338,7 @@
       "id": 223,
       "question": "對向行駛之左右轉車輛，已轉彎需進入同一車道時，右轉彎車輛應讓左轉彎車輛先行。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 224,
@@ -1350,13 +1350,13 @@
       "id": 225,
       "question": "裝載貨物高度自地面算起，大型車不得超過4公尺，小型車不得超過2.85公尺。",
       "answer": true,
-      "explanation": null
+      "explanation": "O"
     },
     {
       "id": 226,
       "question": "[圖示] 本標誌為停車再開。",
       "answer": true,
-      "explanation": null,
+      "explanation": "O",
       "imagePath": "images/tf_226.png"
     },
     {
@@ -1405,14 +1405,14 @@
       "id": 233,
       "question": "[圖示] 本標誌為禁止臨時停車。",
       "answer": true,
-      "explanation": null,
+      "explanation": "O",
       "imagePath": "images/tf_233.png"
     },
     {
       "id": 234,
       "question": "[圖示] 本標誌為禁止會車。",
       "answer": true,
-      "explanation": null,
+      "explanation": "O",
       "imagePath": "images/tf_234.png"
     },
     {
@@ -1433,14 +1433,14 @@
       "id": 237,
       "question": "[圖示] 本標誌為前方有幹道，幹道車輛優先通行。",
       "answer": true,
-      "explanation": null,
+      "explanation": "O",
       "imagePath": "images/tf_237.png"
     },
     {
       "id": 238,
       "question": "[圖示] 本標誌為險降坡路段小心駕駛。",
       "answer": true,
-      "explanation": null,
+      "explanation": "O",
       "imagePath": "images/tf_238.png"
     },
     {
@@ -1468,35 +1468,35 @@
       "id": 242,
       "question": "[圖示] 左圖為GHS腐蝕性物質標示。",
       "answer": true,
-      "explanation": null,
+      "explanation": "O",
       "imagePath": "images/tf_242.png"
     },
     {
       "id": 243,
       "question": "[圖示] 左圖為GHS刺激性物質標示。",
       "answer": true,
-      "explanation": null,
+      "explanation": "O",
       "imagePath": "images/tf_243.png"
     },
     {
       "id": 244,
       "question": "[圖示] 左圖為GHS環境危害物質標示。",
       "answer": true,
-      "explanation": null,
+      "explanation": "O",
       "imagePath": "images/tf_244.png"
     },
     {
       "id": 245,
       "question": "[圖示] 本標誌為禁止聯結車進入。",
       "answer": true,
-      "explanation": null,
+      "explanation": "O",
       "imagePath": "images/tf_245.png"
     },
     {
       "id": 246,
       "question": "[圖示] 本標誌為注意強風。",
       "answer": true,
-      "explanation": null,
+      "explanation": "O",
       "imagePath": "images/tf_246.png"
     },
     {
@@ -1517,14 +1517,14 @@
       "id": 249,
       "question": "[圖示] 本標誌為此路不通。",
       "answer": true,
-      "explanation": null,
+      "explanation": "O",
       "imagePath": "images/tf_249.png"
     },
     {
       "id": 250,
       "question": "[圖示] 本標誌為避車彎。",
       "answer": true,
-      "explanation": null,
+      "explanation": "O",
       "imagePath": "images/tf_250.png"
     }
   ]
