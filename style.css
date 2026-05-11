@@ -246,6 +246,82 @@ body::before {
   font-size: 0.95rem;
 }
 
+/* 首頁：模式選擇 */
+.home-start {
+  padding: 22px 20px 24px;
+  margin-bottom: 24px;
+}
+.home-start-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+.home-start-divider {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 16px 0 14px;
+}
+.practice-mode-block {
+  text-align: left;
+}
+.practice-mode-heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.practice-mode-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+.practice-type-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.btn-practice-type {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 14px 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: left;
+}
+.btn-practice-type:hover:not(:disabled) {
+  border-color: var(--border-glow);
+  background: var(--bg-card-hover);
+}
+.btn-practice-type:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn-practice-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  text-transform: none;
+}
+.btn-practice-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
 /* Buttons */
 .btn-primary {
   display: flex;
@@ -497,7 +573,48 @@ body::before {
   color: white;
 }
 
+.option-btn.option-reveal-correct {
+  border-color: var(--color-correct);
+  background: var(--color-correct-bg);
+  box-shadow: 0 0 0 1px var(--color-correct);
+}
+.option-btn.option-reveal-wrong {
+  border-color: var(--color-wrong);
+  background: var(--color-wrong-bg);
+  box-shadow: 0 0 0 1px var(--color-wrong);
+}
+.option-btn.option-reveal-neutral {
+  opacity: 0.42;
+}
+.option-btn:disabled {
+  cursor: default;
+  opacity: 1;
+}
+.option-btn.option-reveal-neutral:disabled {
+  opacity: 0.42;
+}
+
 .option-text { flex: 1; }
+
+/* 練習模式：作答後回饋 */
+.practice-feedback {
+  margin-bottom: 20px;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.practice-feedback--correct {
+  background: var(--color-correct-bg);
+  border: 1px solid var(--color-correct);
+  color: var(--color-correct);
+}
+.practice-feedback--wrong {
+  background: var(--color-wrong-bg);
+  border: 1px solid var(--color-wrong);
+  color: hsl(0, 65%, 72%);
+}
 
 /* Navigation */
 .exam-nav {
@@ -540,6 +657,16 @@ body::before {
   justify-content: center;
   flex: 1;
   max-width: 360px;
+}
+
+.exam-nav--no-dots .question-dots {
+  display: none;
+}
+.exam-nav--no-dots {
+  justify-content: space-between;
+}
+.exam-nav--no-dots .btn-nav {
+  flex: 0 0 auto;
 }
 
 .q-dot {
@@ -631,6 +758,11 @@ body::before {
   background: var(--color-wrong-bg);
   border: 2px solid var(--color-wrong);
 }
+.result-icon.practice {
+  background: hsla(240, 80%, 65%, 0.12);
+  border: 2px solid var(--accent-1);
+  color: var(--accent-1);
+}
 
 .result-verdict {
   font-size: 1.4rem;
@@ -639,6 +771,9 @@ body::before {
 }
 .result-verdict.pass { color: var(--color-correct); }
 .result-verdict.fail { color: var(--color-wrong); }
+.result-verdict.practice {
+  color: var(--accent-1);
+}
 
 .result-score-display {
   margin-bottom: 28px;
@@ -808,9 +943,24 @@ body::before {
 .result-actions {
   text-align: center;
 }
+.result-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.result-actions-row .btn-secondary,
+.result-actions-row .btn-primary {
+  min-width: 140px;
+}
 .result-actions .btn-primary {
   max-width: 320px;
   margin: 0 auto;
+}
+.result-actions-row .btn-primary {
+  max-width: none;
+  margin: 0;
 }
 
 /* ===== Question Image ===== */

@@ -98,10 +98,36 @@
         </div>
       </div>
 
-      <button id="btn-start" class="btn-primary" disabled>
-        <span class="btn-text">載入題庫中...</span>
-        <span class="btn-spinner"></span>
-      </button>
+      <div class="home-start glass-card">
+        <h2 class="home-start-title">選擇模式</h2>
+        <button type="button" id="btn-simulation" class="btn-primary" disabled>
+          <span class="btn-text">載入題庫中...</span>
+          <span class="btn-spinner"></span>
+        </button>
+        <p class="home-start-divider">或</p>
+        <div class="practice-mode-block">
+          <h3 class="practice-mode-heading">題型練習（正常模式）</h3>
+          <p class="practice-mode-desc">依題庫題號順序逐題作答；選完選項後立即顯示對錯與正解。交通法規各 250 題、機械常識各 125 題。</p>
+          <div class="practice-type-grid" id="practice-type-grid">
+            <button type="button" class="btn-practice-type" data-practice-bank="trafficTF" disabled>
+              <span class="btn-practice-badge badge-traffic">交通法規</span>
+              <span class="btn-practice-label">是非題</span>
+            </button>
+            <button type="button" class="btn-practice-type" data-practice-bank="trafficMC" disabled>
+              <span class="btn-practice-badge badge-traffic">交通法規</span>
+              <span class="btn-practice-label">選擇題</span>
+            </button>
+            <button type="button" class="btn-practice-type" data-practice-bank="mechanicalTF" disabled>
+              <span class="btn-practice-badge badge-mechanical">機械常識</span>
+              <span class="btn-practice-label">是非題</span>
+            </button>
+            <button type="button" class="btn-practice-type" data-practice-bank="mechanicalMC" disabled>
+              <span class="btn-practice-badge badge-mechanical">機械常識</span>
+              <span class="btn-practice-label">選擇題</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -204,8 +230,9 @@
         <div id="review-list" class="review-list"></div>
       </div>
 
-      <div class="result-actions">
-        <button id="btn-retry" class="btn-primary">重新測驗</button>
+      <div class="result-actions result-actions-row">
+        <button type="button" id="btn-result-home" class="btn-secondary">返回首頁</button>
+        <button type="button" id="btn-retry" class="btn-primary">重新測驗</button>
       </div>
     </div>
   </section>

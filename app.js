@@ -7,6 +7,9 @@ const EXAM_CONFIG = {
   passingScore: 95,
 };
 
+/** 題數超過此值不顯示圓點導覽（避免 250 點卡頓） */
+const DOTS_MAX = 60;
+
 const DATA_FILES = [
   { file: 'data/traffic_true_false.json', key: 'trafficTF' },
   { file: 'data/traffic_multiple_choice.json', key: 'trafficMC' },
@@ -17,6 +20,8 @@ const DATA_FILES = [
 // ===== State =====
 const state = {
   banks: {},
+  examMode: 'simulation', // 'simulation' | 'practice'
+  practiceBankKey: null,
   examQuestions: [],
   currentIndex: 0,
   userAnswers: [],   // null = unanswered, for TF: true/false, for MC: 1-based index
@@ -31,7 +36,8 @@ const dom = {
   screenHome: $('#screen-home'),
   screenExam: $('#screen-exam'),
   screenResult: $('#screen-result'),
-  btnStart: $('#btn-start'),
+  btnSimulation: $('#btn-simulation'),
+  practiceTypeGrid: $('#practice-type-grid'),
   btnPrev: $('#btn-prev'),
   btnNext: $('#btn-next'),
   btnFlag: $('#btn-flag'),
@@ -43,6 +49,7 @@ const dom = {
   examCurrentNum: $('#exam-current-num'),
   examTotalNum: $('#exam-total-num'),
   examProgressFill: $('#exam-progress-fill'),
+  examNav: $('.exam-nav'),
   questionCategory: $('#question-category'),
   questionType: $('#question-type'),
   questionNumber: $('#question-number'),
@@ -50,7 +57,16 @@ const dom = {
   optionsContainer: $('#options-container'),
   questionDots: $('#question-dots'),
   btnRetry: $('#btn-retry'),
+  btnResultHome: $('#btn-result-home'),
 };
+
+function getExamTotal() {
+  return state.examQuestions.length;
+}
+
+function isPracticeLocked(idx) {
+  return state.examMode === 'practice' && state.userAnswers[idx] !== null;
+}
 
 // ===== Data Loading =====
 async function loadQuestionBanks() {
@@ -152,6 +168,8 @@ function sampleQuestions(bank, count) {
 }
 
 function generateExam() {
+  state.examMode = 'simulation';
+  state.practiceBankKey = null;
   const n = EXAM_CONFIG.questionsPerType;
   const parts = [
     sampleQuestions(state.banks.trafficTF, n),
@@ -166,6 +184,34 @@ function generateExam() {
   state.currentIndex = 0;
 }
 
+/**
+ * 題型練習：單一題庫全部題目，依 id 遞增
+ * @param {string} bankKey trafficTF | trafficMC | mechanicalTF | mechanicalMC
+ */
+function buildPracticeSession(bankKey) {
+  const bank = state.banks[bankKey];
+  if (!bank || !Array.isArray(bank.questions)) {
+    console.error('無效的題庫鍵：', bankKey);
+    return;
+  }
+  state.examMode = 'practice';
+  state.practiceBankKey = bankKey;
+  const sorted = [...bank.questions].sort((a, b) => {
+    const ida = typeof a.id === 'number' ? a.id : 0;
+    const idb = typeof b.id === 'number' ? b.id : 0;
+    return ida - idb;
+  });
+  state.examQuestions = sorted.map((q) => ({
+    ...q,
+    _type: bank.type,
+    _category: bank.category,
+  }));
+  const len = state.examQuestions.length;
+  state.userAnswers = new Array(len).fill(null);
+  state.flagged = new Array(len).fill(false);
+  state.currentIndex = 0;
+}
+
 // ===== Screen Management =====
 function showScreen(screen) {
   $$('.screen').forEach((s) => s.classList.remove('active'));
@@ -173,11 +219,50 @@ function showScreen(screen) {
   window.scrollTo(0, 0);
 }
 
+function removePracticeFeedbackEl() {
+  const el = document.getElementById('practice-feedback');
+  if (el) el.remove();
+}
+
+function getCorrectAnswerDisplay(q) {
+  if (q._type === 'trueFalse') return q.answer ? '正確 (O)' : '錯誤 (X)';
+  return q.options[q.answer - 1];
+}
+
+function renderPracticeFeedback(q, idx) {
+  if (state.examMode !== 'practice') {
+    removePracticeFeedbackEl();
+    return;
+  }
+  const userAns = state.userAnswers[idx];
+  if (userAns === null) {
+    removePracticeFeedbackEl();
+    return;
+  }
+  const isCorrect = userAns === q.answer;
+  let el = document.getElementById('practice-feedback');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'practice-feedback';
+    dom.optionsContainer.parentNode.insertBefore(el, dom.optionsContainer.nextSibling);
+  }
+  el.className = isCorrect
+    ? 'practice-feedback practice-feedback--correct'
+    : 'practice-feedback practice-feedback--wrong';
+  el.textContent = isCorrect
+    ? '答對了！'
+    : `答錯了。正解：${getCorrectAnswerDisplay(q)}`;
+}
+
 // ===== Exam Rendering =====
 function renderQuestion() {
   const idx = state.currentIndex;
   const q = state.examQuestions[idx];
-  const total = EXAM_CONFIG.totalQuestions;
+  const total = getExamTotal();
+
+  if (state.examMode !== 'practice') {
+    removePracticeFeedbackEl();
+  }
 
   // Header
   dom.examCurrentNum.textContent = idx + 1;
@@ -219,6 +304,8 @@ function renderQuestion() {
     renderMultipleChoiceOptions(q, idx);
   }
 
+  renderPracticeFeedback(q, idx);
+
   // Navigation
   dom.btnPrev.disabled = idx === 0;
   dom.btnNext.textContent = idx === total - 1 ? '交卷' : '';
@@ -231,44 +318,81 @@ function renderQuestion() {
   // Flag
   dom.btnFlag.classList.toggle('flagged', state.flagged[idx]);
 
-  // Dots
-  renderDots();
+  // Dots：題數多時隱藏
+  if (dom.examNav) {
+    dom.examNav.classList.toggle('exam-nav--no-dots', total > DOTS_MAX);
+  }
+  if (total <= DOTS_MAX) {
+    renderDots();
+  } else {
+    dom.questionDots.innerHTML = '';
+  }
 }
 
 function renderTrueFalseOptions(q, idx) {
+  const locked = isPracticeLocked(idx);
+  const userAns = state.userAnswers[idx];
   const options = [
     { label: 'O', value: true, text: '正確 (O)' },
     { label: 'X', value: false, text: '錯誤 (X)' },
   ];
   options.forEach((opt) => {
     const btn = document.createElement('button');
-    btn.className = 'option-btn' + (state.userAnswers[idx] === opt.value ? ' selected' : '');
+    let revealClass = '';
+    if (locked) {
+      const isCorrectOpt = opt.value === q.answer;
+      const isUserPick = userAns === opt.value;
+      if (isCorrectOpt) revealClass = ' option-reveal-correct';
+      else if (isUserPick) revealClass = ' option-reveal-wrong';
+      else revealClass = ' option-reveal-neutral';
+    }
+    btn.type = 'button';
+    btn.className = 'option-btn' + (userAns === opt.value ? ' selected' : '') + revealClass;
     btn.innerHTML = `
       <span class="option-label">${opt.label}</span>
       <span class="option-text">${opt.text}</span>
     `;
-    btn.addEventListener('click', () => {
-      state.userAnswers[idx] = opt.value;
-      renderQuestion();
-    });
+    if (locked) {
+      btn.disabled = true;
+    } else {
+      btn.addEventListener('click', () => {
+        state.userAnswers[idx] = opt.value;
+        renderQuestion();
+      });
+    }
     dom.optionsContainer.appendChild(btn);
   });
 }
 
 function renderMultipleChoiceOptions(q, idx) {
+  const locked = isPracticeLocked(idx);
+  const userAns = state.userAnswers[idx];
   const labels = ['A', 'B', 'C', 'D'];
   q.options.forEach((opt, i) => {
     const answerValue = i + 1;
     const btn = document.createElement('button');
-    btn.className = 'option-btn' + (state.userAnswers[idx] === answerValue ? ' selected' : '');
+    let revealClass = '';
+    if (locked) {
+      const isCorrectOpt = answerValue === q.answer;
+      const isUserPick = userAns === answerValue;
+      if (isCorrectOpt) revealClass = ' option-reveal-correct';
+      else if (isUserPick) revealClass = ' option-reveal-wrong';
+      else revealClass = ' option-reveal-neutral';
+    }
+    btn.type = 'button';
+    btn.className = 'option-btn' + (userAns === answerValue ? ' selected' : '') + revealClass;
     btn.innerHTML = `
       <span class="option-label">${labels[i]}</span>
       <span class="option-text">${opt}</span>
     `;
-    btn.addEventListener('click', () => {
-      state.userAnswers[idx] = answerValue;
-      renderQuestion();
-    });
+    if (locked) {
+      btn.disabled = true;
+    } else {
+      btn.addEventListener('click', () => {
+        state.userAnswers[idx] = answerValue;
+        renderQuestion();
+      });
+    }
     dom.optionsContainer.appendChild(btn);
   });
 }
@@ -277,6 +401,7 @@ function renderDots() {
   dom.questionDots.innerHTML = '';
   state.examQuestions.forEach((_, i) => {
     const dot = document.createElement('button');
+    dot.type = 'button';
     dot.className = 'q-dot';
     if (i === state.currentIndex) dot.classList.add('current');
     if (state.userAnswers[i] !== null) dot.classList.add('answered');
@@ -350,26 +475,60 @@ function calculateResults() {
     };
   });
 
-  const score = correct * EXAM_CONFIG.pointsPerQuestion;
-  const passed = score >= EXAM_CONFIG.passingScore;
+  const total = state.examQuestions.length;
+  const isPractice = state.examMode === 'practice';
+  const scorePoints = correct * EXAM_CONFIG.pointsPerQuestion;
+  const scorePercent = total > 0 ? Math.round((correct / total) * 100) : 0;
+  const passed = !isPractice && scorePoints >= EXAM_CONFIG.passingScore;
 
-  return { score, correct, wrong, unanswered, passed, categories, reviewData };
+  return {
+    isPractice,
+    displayScore: isPractice ? scorePercent : scorePoints,
+    scoreUnit: isPractice ? '%' : '分',
+    score: isPractice ? scorePercent : scorePoints,
+    correct,
+    wrong,
+    unanswered,
+    passed,
+    categories,
+    reviewData,
+    totalQuestions: total,
+  };
 }
 
 // ===== Result Rendering =====
 function renderResult(results) {
-  const { score, correct, wrong, unanswered, passed, categories, reviewData } = results;
+  const {
+    isPractice,
+    displayScore,
+    scoreUnit,
+    correct,
+    wrong,
+    unanswered,
+    passed,
+    categories,
+    reviewData,
+  } = results;
 
   // Icon & verdict
   const iconEl = $('#result-icon');
   const verdictEl = $('#result-verdict');
-  iconEl.className = 'result-icon ' + (passed ? 'pass' : 'fail');
-  iconEl.textContent = passed ? '\u2714' : '\u2718';
-  verdictEl.className = 'result-verdict ' + (passed ? 'pass' : 'fail');
-  verdictEl.textContent = passed ? '恭喜通過！' : '未達及格標準';
+  if (isPractice) {
+    iconEl.className = 'result-icon practice';
+    iconEl.textContent = '\u2714';
+    verdictEl.className = 'result-verdict practice';
+    verdictEl.textContent = '練習完成';
+  } else {
+    iconEl.className = 'result-icon ' + (passed ? 'pass' : 'fail');
+    iconEl.textContent = passed ? '\u2714' : '\u2718';
+    verdictEl.className = 'result-verdict ' + (passed ? 'pass' : 'fail');
+    verdictEl.textContent = passed ? '恭喜通過！' : '未達及格標準';
+  }
 
   // Score
-  $('#result-score').textContent = score;
+  $('#result-score').textContent = displayScore;
+  const unitEl = $('.result-score-unit');
+  if (unitEl) unitEl.textContent = scoreUnit;
   $('#result-correct').textContent = correct;
   $('#result-wrong').textContent = wrong;
   $('#result-unanswered').textContent = unanswered;
@@ -377,7 +536,13 @@ function renderResult(results) {
   // Category breakdown
   const catContainer = $('#result-categories');
   catContainer.innerHTML = '';
-  Object.entries(categories).forEach(([name, data]) => {
+  const breakdownTitle = $('.result-breakdown h2');
+  if (breakdownTitle) {
+    breakdownTitle.textContent = isPractice ? '本次練習' : '題型分析';
+  }
+
+  const catEntries = Object.entries(categories).filter(([, data]) => data.total > 0);
+  catEntries.forEach(([name, data]) => {
     const pct = data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0;
     const div = document.createElement('div');
     div.className = 'cat-bar-item';
@@ -391,7 +556,6 @@ function renderResult(results) {
       </div>
     `;
     catContainer.appendChild(div);
-    // Animate bar
     requestAnimationFrame(() => {
       setTimeout(() => {
         div.querySelector('.cat-bar-fill').style.width = pct + '%';
@@ -445,10 +609,11 @@ function renderResult(results) {
 
 // ===== Submit Flow =====
 function showSubmitModal() {
+  const total = getExamTotal();
   const unanswered = state.userAnswers.filter((a) => a === null).length;
   const flaggedCount = state.flagged.filter(Boolean).length;
 
-  let msg = `共 ${EXAM_CONFIG.totalQuestions} 題，已作答 ${EXAM_CONFIG.totalQuestions - unanswered} 題。`;
+  let msg = `共 ${total} 題，已作答 ${total - unanswered} 題。`;
   if (unanswered > 0) msg += `\n尚有 ${unanswered} 題未作答，未作答將以零分計算。`;
   if (flaggedCount > 0) msg += `\n有 ${flaggedCount} 題已標記待檢查。`;
   msg += '\n\n確定要交卷嗎？';
@@ -467,11 +632,21 @@ function submitExam() {
 
 // ===== Event Binding =====
 function bindEvents() {
-  dom.btnStart.addEventListener('click', () => {
+  dom.btnSimulation.addEventListener('click', () => {
     generateExam();
     showScreen(dom.screenExam);
     renderQuestion();
   });
+
+  if (dom.practiceTypeGrid) {
+    dom.practiceTypeGrid.addEventListener('click', (e) => {
+      const t = e.target.closest('[data-practice-bank]');
+      if (!t || t.disabled) return;
+      buildPracticeSession(t.dataset.practiceBank);
+      showScreen(dom.screenExam);
+      renderQuestion();
+    });
+  }
 
   dom.btnPrev.addEventListener('click', () => {
     if (state.currentIndex > 0) {
@@ -481,7 +656,8 @@ function bindEvents() {
   });
 
   dom.btnNext.addEventListener('click', () => {
-    if (state.currentIndex < EXAM_CONFIG.totalQuestions - 1) {
+    const total = getExamTotal();
+    if (state.currentIndex < total - 1) {
       state.currentIndex++;
       renderQuestion();
     } else {
@@ -492,7 +668,7 @@ function bindEvents() {
   dom.btnFlag.addEventListener('click', () => {
     state.flagged[state.currentIndex] = !state.flagged[state.currentIndex];
     dom.btnFlag.classList.toggle('flagged', state.flagged[state.currentIndex]);
-    renderDots();
+    if (getExamTotal() <= DOTS_MAX) renderDots();
   });
 
   dom.btnSubmitExam.addEventListener('click', showSubmitModal);
@@ -502,10 +678,21 @@ function bindEvents() {
   dom.btnConfirmSubmit.addEventListener('click', submitExam);
 
   dom.btnRetry.addEventListener('click', () => {
-    generateExam();
+    if (state.examMode === 'practice' && state.practiceBankKey) {
+      buildPracticeSession(state.practiceBankKey);
+    } else {
+      generateExam();
+    }
     showScreen(dom.screenExam);
     renderQuestion();
   });
+
+  if (dom.btnResultHome) {
+    dom.btnResultHome.addEventListener('click', () => {
+      removePracticeFeedbackEl();
+      showScreen(dom.screenHome);
+    });
+  }
 
   // Keyboard shortcuts
   document.addEventListener('keydown', (e) => {
@@ -516,18 +703,21 @@ function bindEvents() {
     if (e.key === 'ArrowLeft' || e.key === 'p') dom.btnPrev.click();
     if (e.key === 'f') dom.btnFlag.click();
 
+    if (isPracticeLocked(state.currentIndex)) return;
+
     const q = state.examQuestions[state.currentIndex];
+    if (!q) return;
     if (q._type === 'trueFalse') {
-      if (e.key === '1' || e.key === 'o') {
+      if (e.key === '1' || e.key === 'o' || e.key === 'O') {
         state.userAnswers[state.currentIndex] = true;
         renderQuestion();
       }
-      if (e.key === '2' || e.key === 'x') {
+      if (e.key === '2' || e.key === 'x' || e.key === 'X') {
         state.userAnswers[state.currentIndex] = false;
         renderQuestion();
       }
     } else {
-      const num = parseInt(e.key);
+      const num = parseInt(e.key, 10);
       if (num >= 1 && num <= q.options.length) {
         state.userAnswers[state.currentIndex] = num;
         renderQuestion();
@@ -536,15 +726,22 @@ function bindEvents() {
   });
 }
 
+function enableHomeButtons() {
+  dom.btnSimulation.disabled = false;
+  const txt = dom.btnSimulation.querySelector('.btn-text');
+  if (txt) txt.textContent = '模擬考試（40 題）';
+  $$('.btn-practice-type').forEach((btn) => { btn.disabled = false; });
+}
+
 // ===== Init =====
 async function init() {
   bindEvents();
   try {
     await loadQuestionBanks();
-    dom.btnStart.disabled = false;
-    dom.btnStart.querySelector('.btn-text').textContent = '開始測驗';
+    enableHomeButtons();
   } catch (err) {
-    dom.btnStart.querySelector('.btn-text').textContent = '題庫載入失敗';
+    const txt = dom.btnSimulation.querySelector('.btn-text');
+    if (txt) txt.textContent = '題庫載入失敗';
     console.error('Failed to load question banks:', err);
   }
 }
