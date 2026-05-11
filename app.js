@@ -74,26 +74,75 @@ function shuffleArray(arr) {
   return a;
 }
 
+function randomPick(arr) {
+  if (!arr || arr.length === 0) return null;
+  const idx = Math.floor(Math.random() * arr.length);
+  return arr[idx];
+}
+
+function sampleByIdWindows(questions, windows, count) {
+  const selected = [];
+  const usedIds = new Set();
+
+  windows.forEach(([startId, endId]) => {
+    const candidates = questions.filter((q) => (
+      typeof q.id === 'number'
+      && q.id >= startId
+      && q.id <= endId
+      && !usedIds.has(q.id)
+    ));
+    const picked = randomPick(candidates);
+    if (picked) {
+      selected.push(picked);
+      usedIds.add(picked.id);
+    } else {
+      console.warn(`無可用題目可抽：id ${startId}-${endId}`);
+    }
+  });
+
+  if (selected.length < count) {
+    const remaining = shuffleArray(
+      questions.filter((q) => !usedIds.has(q.id))
+    );
+    selected.push(...remaining.slice(0, count - selected.length));
+  }
+
+  return selected.slice(0, count);
+}
+
+function buildTrafficWindows() {
+  const windows = [];
+  for (let start = 1; start <= 201; start += 25) {
+    windows.push([start, start + 24]);
+  }
+  windows.push([226, 250]);
+  return windows;
+}
+
+function buildMechanicalWindows() {
+  const windows = [];
+  for (let start = 1; start <= 97; start += 12) {
+    windows.push([start, start + 11]);
+  }
+  windows.push([109, 125]);
+  return windows;
+}
+
 function sampleQuestions(bank, count) {
-  const withImages = bank.questions.filter(q => q.imagePath);
-  const withoutImages = bank.questions.filter(q => !q.imagePath);
-  
+  const hasValidIds = bank.questions.every((q) => typeof q.id === 'number');
   let selected = [];
-  
-  if (withImages.length > 0) {
-    // 隨機決定要 1 題或 2 題圖片題 (如果有足夠的圖片題)
-    const imageCount = Math.min(withImages.length, Math.floor(Math.random() * 2) + 1);
-    const shuffledWithImages = shuffleArray(withImages);
-    const shuffledWithoutImages = shuffleArray(withoutImages);
-    
-    selected = [
-      ...shuffledWithImages.slice(0, imageCount),
-      ...shuffledWithoutImages.slice(0, count - imageCount)
-    ];
+
+  if (!hasValidIds) {
+    console.warn(`${bank.category}-${bank.type} 題庫缺少有效 id，改用一般隨機抽樣`);
+    selected = shuffleArray(bank.questions).slice(0, count);
+  } else if (bank.category === '交通法規') {
+    selected = sampleByIdWindows(bank.questions, buildTrafficWindows(), count);
+  } else if (bank.category === '機械常識') {
+    selected = sampleByIdWindows(bank.questions, buildMechanicalWindows(), count);
   } else {
     selected = shuffleArray(bank.questions).slice(0, count);
   }
-  
+
   // 將選出的題目打亂，並加入元資料
   return shuffleArray(selected).map((q) => ({
     ...q,
@@ -140,7 +189,8 @@ function renderQuestion() {
   dom.questionCategory.className = 'question-category-badge' +
     (q._category === '機械常識' ? ' mechanical' : '');
   dom.questionType.textContent = q._type === 'trueFalse' ? '是非題' : '選擇題';
-  dom.questionNumber.textContent = `第 ${idx + 1} 題`;
+  const questionIdText = typeof q.id === 'number' ? `（題庫ID: ${q.id}）` : '';
+  dom.questionNumber.textContent = `第 ${idx + 1} 題 ${questionIdText}`;
 
   // Question text（去除 [圖示] 前綴，圖片另外顯示）
   const displayText = q.question.replace(/^\[圖示\]\s*/, '');
@@ -286,6 +336,7 @@ function calculateResults() {
 
     return {
       index: i,
+      questionId: typeof q.id === 'number' ? q.id : null,
       question: q.question,
       imagePath: q.imagePath || null,
       isCorrect,
@@ -377,9 +428,10 @@ function renderResult(results) {
 
     const div = document.createElement('div');
     div.className = `review-item ${statusClass}`;
+    const reviewIdText = r.questionId !== null ? `（ID: ${r.questionId}）` : '';
     div.innerHTML = `
       <div class="review-item-header">
-        <span class="review-num">#${r.index + 1}</span>
+        <span class="review-num">#${r.index + 1} ${reviewIdText}</span>
         <span class="review-result-badge ${badgeClass}">${badgeText}</span>
       </div>
       ${reviewImgHTML}
