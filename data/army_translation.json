@@ -1,0 +1,216 @@
+{
+  "type": "multipleChoice",
+  "category": "英翻中",
+  "questions": [
+    {
+      "id": 1,
+      "question": "「CCIR」(Commander's Critical Information Requirement) 中文翻譯為何？",
+      "options": ["指揮所", "友軍重要情報", "友軍情報需求", "指揮官重要情報需求"],
+      "answer": 4,
+      "explanation": "CCIR = Commander's Critical Information Requirement = 指揮官重要情報需求"
+    },
+    {
+      "id": 2,
+      "question": "「HKCPX」(Han Kuang Command Post Exercise) 中文翻譯為何？",
+      "options": ["漢光縮短距離演習", "聯合作戰", "漢光兵推", "漢光實兵"],
+      "answer": 3,
+      "explanation": "HKCPX = Han Kuang Command Post Exercise = 漢光兵推（指揮所演習）"
+    },
+    {
+      "id": 3,
+      "question": "「JOCC」(Joint Operations Command Center) 中文翻譯為何？",
+      "options": ["空軍作戰指揮部", "國軍聯合作戰指揮中心", "聯合作戰指揮部", "國防部參謀本部"],
+      "answer": 2,
+      "explanation": "JOCC = Joint Operations Command Center = 國軍聯合作戰指揮中心"
+    },
+    {
+      "id": 4,
+      "question": "「JAOC」(Joint Air Operation Command) 中文翻譯為何？",
+      "options": ["空軍作戰指揮部", "國軍聯合作戰指揮中心", "空軍戰情中心", "聯合作戰指揮部"],
+      "answer": 1,
+      "explanation": "JAOC = Joint Air Operation Command = 空軍作戰指揮部"
+    },
+    {
+      "id": 5,
+      "question": "「ECOA」(Enemy Course of Action) 中文翻譯為何？",
+      "options": ["敵軍可能行動", "最佳行動方案", "敵接近路線", "假想敵訓練"],
+      "answer": 1,
+      "explanation": "ECOA = Enemy Course of Action = 敵軍可能行動"
+    },
+    {
+      "id": 6,
+      "question": "「NCO」(Non-Commissioned Officer) 中文翻譯為何？",
+      "options": ["士官", "軍官", "上士", "士官長"],
+      "answer": 1,
+      "explanation": "NCO = Non-Commissioned Officer = 士官"
+    },
+    {
+      "id": 7,
+      "question": "「HKX」(Han Kuang Exercise) 中文翻譯為何？",
+      "options": ["漢光演習", "漢光參謀訓練", "漢光兵推", "漢光實兵"],
+      "answer": 1,
+      "explanation": "HKX = Han Kuang Exercise = 漢光演習"
+    },
+    {
+      "id": 8,
+      "question": "「JMETL」(Joint Mission Essential Task List) 中文翻譯為何？",
+      "options": ["聯合作戰計畫", "任務清單", "聯合任務關鍵行動清單", "關鍵任務要項"],
+      "answer": 3,
+      "explanation": "JMETL = Joint Mission Essential Task List = 聯合任務關鍵行動清單"
+    },
+    {
+      "id": 9,
+      "question": "「MSEL」(Master Scenario Events List) 中文翻譯為何？",
+      "options": ["聯合作戰指揮部", "關鍵任務清單", "聯合作戰計畫", "主要想定事件清單"],
+      "answer": 4,
+      "explanation": "MSEL = Master Scenario Events List = 主要想定事件清單"
+    },
+    {
+      "id": 10,
+      "question": "「ROE」(Rule of Engagement) 中文翻譯為何？",
+      "options": ["接戰規則", "任務清單", "作戰程序", "訓測講習"],
+      "answer": 1,
+      "explanation": "ROE = Rule of Engagement = 接戰規則"
+    },
+    {
+      "id": 11,
+      "question": "「CTC2.0」(Combined Training Center 2.0) 中文翻譯為何？",
+      "options": ["聯合作戰計畫", "新式基地訓測模式 2.0", "國家撥交權", "新式戰備訓練模式"],
+      "answer": 2,
+      "explanation": "CTC2.0 = Combined Training Center 2.0 = 新式基地訓測模式 2.0"
+    },
+    {
+      "id": 12,
+      "question": "「TRM2.0」(Field Training Model 2.0) 中文翻譯為何？",
+      "options": ["聯合作戰計畫", "新式基地訓測模式 2.0", "國家撥交權", "新式戰備訓練模式"],
+      "answer": 4,
+      "explanation": "TRM2.0 = Field Training Model 2.0 = 新式戰備訓練模式"
+    },
+    {
+      "id": 13,
+      "question": "「FTX」(Field Training Exercise) 中文翻譯為何？",
+      "options": ["實兵演練", "漢光演習", "實兵對抗", "紅藍兵推"],
+      "answer": 1,
+      "explanation": "FTX = Field Training Exercise = 實兵演練"
+    },
+    {
+      "id": 14,
+      "question": "「ECST」(Enhanced Basic Combat Skills Training) 中文翻譯為何？",
+      "options": ["兵科教育訓練", "職能強化訓練", "特戰職能訓練", "駐地訓練優化"],
+      "answer": 2,
+      "explanation": "ECST = Enhanced Basic Combat Skills Training = 職能強化訓練"
+    },
+    {
+      "id": 15,
+      "question": "「R/BCPX」(Red and Blue Command Post Exercise) 中文翻譯為何？",
+      "options": ["戰術兵推", "戰術課程", "紅藍兵推", "沙盤推演"],
+      "answer": 3,
+      "explanation": "R/BCPX = Red and Blue Command Post Exercise = 紅藍兵推"
+    },
+    {
+      "id": 16,
+      "question": "「EEFI」(Essential Element of Friendly Information) 中文翻譯為何？",
+      "options": ["指揮所", "友軍重要情報", "友軍情報需求", "指揮官重要情報需求"],
+      "answer": 2,
+      "explanation": "EEFI = Essential Element of Friendly Information = 友軍重要情報"
+    },
+    {
+      "id": 17,
+      "question": "「PL」(Phase Line) 中文翻譯為何？",
+      "options": ["攻擊發起線", "敵我接觸線即為攻擊發起線", "統制線", "防禦陣地前緣"],
+      "answer": 3,
+      "explanation": "PL = Phase Line = 統制線"
+    },
+    {
+      "id": 18,
+      "question": "「LD/LC」(The Line of Departure is the Line of Contact) 中文翻譯為何？",
+      "options": ["攻擊發起線", "敵我接觸線即為攻擊發起線", "統制線", "防禦陣地前緣"],
+      "answer": 2,
+      "explanation": "LD/LC = The Line of Departure is the Line of Contact = 敵我接觸線即為攻擊發起線"
+    },
+    {
+      "id": 19,
+      "question": "「NFL」(No Fires Line) 中文翻譯為何？",
+      "options": ["禁射線", "統制線", "敵我接觸線即為攻擊發起線", "防禦陣地前緣"],
+      "answer": 1,
+      "explanation": "NFL = No Fires Line = 禁射線"
+    },
+    {
+      "id": 20,
+      "question": "「TLP」(Troop Leading Procedure) 中文翻譯為何？",
+      "options": ["部隊指揮程序", "軍事決策程序", "指揮所演習", "戰場情報準備"],
+      "answer": 1,
+      "explanation": "TLP = Troop Leading Procedure = 部隊指揮程序"
+    },
+    {
+      "id": 21,
+      "question": "「IPB」(Intelligence Preparation Battlefield) 中文翻譯為何？",
+      "options": ["部隊指揮程序", "軍事決策程序", "指揮所演習", "戰場情報準備"],
+      "answer": 4,
+      "explanation": "IPB = Intelligence Preparation Battlefield = 戰場情報準備"
+    },
+    {
+      "id": 22,
+      "question": "「MDMP」(Military Decision Making Process) 中文翻譯為何？",
+      "options": ["部隊指揮程序", "軍事決策程序", "指揮所演習", "戰場情報準備"],
+      "answer": 2,
+      "explanation": "MDMP = Military Decision Making Process = 軍事決策程序"
+    },
+    {
+      "id": 23,
+      "question": "「UAS」(Unmanned Aerial System) 中文翻譯為何？",
+      "options": ["無人飛行系統", "海馬士", "無人機", "反制無人飛行系統"],
+      "answer": 1,
+      "explanation": "UAS = Unmanned Aerial System = 無人飛行系統"
+    },
+    {
+      "id": 24,
+      "question": "(Staff Sergeant) 中文翻譯為何？",
+      "options": ["士兵", "軍官", "上士", "士官長"],
+      "answer": 3,
+      "explanation": "Staff Sergeant = 上士"
+    },
+    {
+      "id": 25,
+      "question": "(Company) 中文翻譯為何？",
+      "options": ["班", "排", "連", "營"],
+      "answer": 3,
+      "explanation": "Company = 連"
+    },
+    {
+      "id": 26,
+      "question": "(Platoon) 中文翻譯為何？",
+      "options": ["班", "排", "連", "營"],
+      "answer": 2,
+      "explanation": "Platoon = 排"
+    },
+    {
+      "id": 27,
+      "question": "(Squad) 中文翻譯為何？",
+      "options": ["班", "排", "連", "營"],
+      "answer": 1,
+      "explanation": "Squad = 班"
+    },
+    {
+      "id": 28,
+      "question": "「TTP」(Tactics Techniques Procedures) 中文翻譯為何？",
+      "options": ["無人飛行系統", "戰術戰技及程序", "無人機", "反制無人機"],
+      "answer": 2,
+      "explanation": "TTP = Tactics Techniques Procedures = 戰術戰技及程序"
+    },
+    {
+      "id": 29,
+      "question": "「FSCL」(Fire Support Coordination Line) 中文翻譯為何？",
+      "options": ["火力支援協調線", "禁射線", "前進限制線", "我軍部署前緣"],
+      "answer": 1,
+      "explanation": "FSCL = Fire Support Coordination Line = 火力支援協調線"
+    },
+    {
+      "id": 30,
+      "question": "「NVG」(Night Vision Goggle) 中文翻譯為何？",
+      "options": ["夜視鏡", "前進觀測官", "夜間戰鬥", "護目鏡"],
+      "answer": 1,
+      "explanation": "NVG = Night Vision Goggle = 夜視鏡"
+    }
+  ]
+}

@@ -1,30 +1,21 @@
-/* ===== 駕照模擬考試系統 - 核心邏輯 ===== */
+/* ===== 軍事美語題型練習系統 - 核心邏輯 ===== */
 
-const EXAM_CONFIG = {
-  questionsPerType: 10,
-  totalQuestions: 40,
-  pointsPerQuestion: 2.5,
-  passingScore: 95,
-};
-
-/** 題數超過此值不顯示圓點導覽（避免 250 點卡頓） */
+/** 題數超過此值不顯示圓點導覽（避免卡頓） */
 const DOTS_MAX = 60;
 
 const DATA_FILES = [
-  { file: 'data/traffic_true_false.json', key: 'trafficTF' },
-  { file: 'data/traffic_multiple_choice.json', key: 'trafficMC' },
-  { file: 'data/mechanical_true_false.json', key: 'mechanicalTF' },
-  { file: 'data/mechanical_multiple_choice.json', key: 'mechanicalMC' },
+  { file: 'data/army_vocabulary.json', key: 'vocabulary' },
+  { file: 'data/army_translation.json', key: 'translation' },
 ];
 
 // ===== State =====
 const state = {
   banks: {},
-  examMode: 'simulation', // 'simulation' | 'practice'
+  examMode: 'practice',
   practiceBankKey: null,
   examQuestions: [],
   currentIndex: 0,
-  userAnswers: [],   // null = unanswered, for TF: true/false, for MC: 1-based index
+  userAnswers: [],   // null = unanswered, 1-based index
   flagged: [],
 };
 
@@ -33,10 +24,10 @@ const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => document.querySelectorAll(sel);
 
 const dom = {
+  // btnSimulation 已移除
   screenHome: $('#screen-home'),
   screenExam: $('#screen-exam'),
   screenResult: $('#screen-result'),
-  btnSimulation: $('#btn-simulation'),
   practiceTypeGrid: $('#practice-type-grid'),
   btnPrev: $('#btn-prev'),
   btnNext: $('#btn-next'),
@@ -90,103 +81,11 @@ function shuffleArray(arr) {
   return a;
 }
 
-function randomPick(arr) {
-  if (!arr || arr.length === 0) return null;
-  const idx = Math.floor(Math.random() * arr.length);
-  return arr[idx];
-}
 
-function sampleByIdWindows(questions, windows, count) {
-  const selected = [];
-  const usedIds = new Set();
-
-  windows.forEach(([startId, endId]) => {
-    const candidates = questions.filter((q) => (
-      typeof q.id === 'number'
-      && q.id >= startId
-      && q.id <= endId
-      && !usedIds.has(q.id)
-    ));
-    const picked = randomPick(candidates);
-    if (picked) {
-      selected.push(picked);
-      usedIds.add(picked.id);
-    } else {
-      console.warn(`無可用題目可抽：id ${startId}-${endId}`);
-    }
-  });
-
-  if (selected.length < count) {
-    const remaining = shuffleArray(
-      questions.filter((q) => !usedIds.has(q.id))
-    );
-    selected.push(...remaining.slice(0, count - selected.length));
-  }
-
-  return selected.slice(0, count);
-}
-
-function buildTrafficWindows() {
-  const windows = [];
-  for (let start = 1; start <= 201; start += 25) {
-    windows.push([start, start + 24]);
-  }
-  windows.push([226, 250]);
-  return windows;
-}
-
-function buildMechanicalWindows() {
-  const windows = [];
-  for (let start = 1; start <= 97; start += 12) {
-    windows.push([start, start + 11]);
-  }
-  windows.push([109, 125]);
-  return windows;
-}
-
-function sampleQuestions(bank, count) {
-  const hasValidIds = bank.questions.every((q) => typeof q.id === 'number');
-  let selected = [];
-
-  if (!hasValidIds) {
-    console.warn(`${bank.category}-${bank.type} 題庫缺少有效 id，改用一般隨機抽樣`);
-    selected = shuffleArray(bank.questions).slice(0, count);
-  } else if (bank.category === '交通法規') {
-    selected = sampleByIdWindows(bank.questions, buildTrafficWindows(), count);
-  } else if (bank.category === '機械常識') {
-    selected = sampleByIdWindows(bank.questions, buildMechanicalWindows(), count);
-  } else {
-    selected = shuffleArray(bank.questions).slice(0, count);
-  }
-
-  // 將選出的題目打亂，並加入元資料
-  return shuffleArray(selected).map((q) => ({
-    ...q,
-    _type: bank.type,
-    _category: bank.category,
-  }));
-}
-
-function generateExam() {
-  state.examMode = 'simulation';
-  state.practiceBankKey = null;
-  const n = EXAM_CONFIG.questionsPerType;
-  const parts = [
-    sampleQuestions(state.banks.trafficTF, n),
-    sampleQuestions(state.banks.trafficMC, n),
-    sampleQuestions(state.banks.mechanicalTF, n),
-    sampleQuestions(state.banks.mechanicalMC, n),
-  ];
-  // 題型依序排列，不跨題型打亂
-  state.examQuestions = parts.flat();
-  state.userAnswers = new Array(EXAM_CONFIG.totalQuestions).fill(null);
-  state.flagged = new Array(EXAM_CONFIG.totalQuestions).fill(false);
-  state.currentIndex = 0;
-}
 
 /**
  * 題型練習：單一題庫全部題目，依 id 遞增
- * @param {string} bankKey trafficTF | trafficMC | mechanicalTF | mechanicalMC
+ * @param {string} bankKey vocabulary | translation
  */
 function buildPracticeSession(bankKey) {
   const bank = state.banks[bankKey];
@@ -225,7 +124,6 @@ function removePracticeFeedbackEl() {
 }
 
 function getCorrectAnswerDisplay(q) {
-  if (q._type === 'trueFalse') return q.answer ? '正確 (O)' : '錯誤 (X)';
   return q.options[q.answer - 1];
 }
 
@@ -249,9 +147,14 @@ function renderPracticeFeedback(q, idx) {
   el.className = isCorrect
     ? 'practice-feedback practice-feedback--correct'
     : 'practice-feedback practice-feedback--wrong';
-  el.textContent = isCorrect
-    ? '答對了！'
-    : `答錯了。正解：${getCorrectAnswerDisplay(q)}`;
+
+  if (isCorrect) {
+    el.textContent = '答對了！';
+  } else {
+    const correctText = getCorrectAnswerDisplay(q);
+    const expText = q.explanation ? `　解析：${q.explanation}` : '';
+    el.textContent = `答錯了。正解：${correctText}${expText}`;
+  }
 }
 
 // ===== Exam Rendering =====
@@ -272,43 +175,32 @@ function renderQuestion() {
   // Meta badges
   dom.questionCategory.textContent = q._category;
   dom.questionCategory.className = 'question-category-badge' +
-    (q._category === '機械常識' ? ' mechanical' : '');
-  dom.questionType.textContent = q._type === 'trueFalse' ? '是非題' : '選擇題';
-  const questionIdText = typeof q.id === 'number' ? `（題庫ID: ${q.id}）` : '';
+    (q._category === '英翻中' ? ' mechanical' : '');
+  dom.questionType.textContent = '選擇題';
+  const questionIdText = typeof q.id === 'number' ? `（題庫 ID: ${q.id}）` : '';
   dom.questionNumber.textContent = `第 ${idx + 1} 題 ${questionIdText}`;
 
-  // Question text（去除 [圖示] 前綴，圖片另外顯示）
-  const displayText = q.question.replace(/^\[圖示\]\s*/, '');
-  dom.questionText.textContent = displayText;
+  // Question text
+  dom.questionText.textContent = q.question;
 
-  // Question image
+  // No image support needed for this bank
   let imgContainer = $('#question-image-container');
   if (!imgContainer) {
     imgContainer = document.createElement('div');
     imgContainer.id = 'question-image-container';
     dom.questionText.parentNode.appendChild(imgContainer);
   }
-  if (q.imagePath) {
-    imgContainer.innerHTML = `<img src="${q.imagePath}" alt="題目圖示" class="question-sign-img" onerror="this.parentNode.style.display='none'">`;
-    imgContainer.style.display = 'flex';
-  } else {
-    imgContainer.innerHTML = '';
-    imgContainer.style.display = 'none';
-  }
+  imgContainer.innerHTML = '';
+  imgContainer.style.display = 'none';
 
   // Options
   dom.optionsContainer.innerHTML = '';
-  if (q._type === 'trueFalse') {
-    renderTrueFalseOptions(q, idx);
-  } else {
-    renderMultipleChoiceOptions(q, idx);
-  }
+  renderMultipleChoiceOptions(q, idx);
 
   renderPracticeFeedback(q, idx);
 
   // Navigation
   dom.btnPrev.disabled = idx === 0;
-  dom.btnNext.textContent = idx === total - 1 ? '交卷' : '';
   if (idx < total - 1) {
     dom.btnNext.innerHTML = '下一題 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>';
   } else {
@@ -318,7 +210,7 @@ function renderQuestion() {
   // Flag
   dom.btnFlag.classList.toggle('flagged', state.flagged[idx]);
 
-  // Dots：題數多時隱藏
+  // Dots
   if (dom.examNav) {
     dom.examNav.classList.toggle('exam-nav--no-dots', total > DOTS_MAX);
   }
@@ -327,41 +219,6 @@ function renderQuestion() {
   } else {
     dom.questionDots.innerHTML = '';
   }
-}
-
-function renderTrueFalseOptions(q, idx) {
-  const locked = isPracticeLocked(idx);
-  const userAns = state.userAnswers[idx];
-  const options = [
-    { label: 'O', value: true, text: '正確 (O)' },
-    { label: 'X', value: false, text: '錯誤 (X)' },
-  ];
-  options.forEach((opt) => {
-    const btn = document.createElement('button');
-    let revealClass = '';
-    if (locked) {
-      const isCorrectOpt = opt.value === q.answer;
-      const isUserPick = userAns === opt.value;
-      if (isCorrectOpt) revealClass = ' option-reveal-correct';
-      else if (isUserPick) revealClass = ' option-reveal-wrong';
-      else revealClass = ' option-reveal-neutral';
-    }
-    btn.type = 'button';
-    btn.className = 'option-btn' + (userAns === opt.value ? ' selected' : '') + revealClass;
-    btn.innerHTML = `
-      <span class="option-label">${opt.label}</span>
-      <span class="option-text">${opt.text}</span>
-    `;
-    if (locked) {
-      btn.disabled = true;
-    } else {
-      btn.addEventListener('click', () => {
-        state.userAnswers[idx] = opt.value;
-        renderQuestion();
-      });
-    }
-    dom.optionsContainer.appendChild(btn);
-  });
 }
 
 function renderMultipleChoiceOptions(q, idx) {
@@ -421,75 +278,51 @@ function calculateResults() {
   let unanswered = 0;
 
   const categories = {
-    '交通法規是非題': { correct: 0, total: 0 },
-    '交通法規選擇題': { correct: 0, total: 0 },
-    '機械常識是非題': { correct: 0, total: 0 },
-    '機械常識選擇題': { correct: 0, total: 0 },
+    '字彙選擇題': { correct: 0, total: 0 },
+    '英翻中選擇題': { correct: 0, total: 0 },
   };
 
   const reviewData = state.examQuestions.map((q, i) => {
     const userAns = state.userAnswers[i];
-    const catKey = q._category + (q._type === 'trueFalse' ? '是非題' : '選擇題');
-    categories[catKey].total++;
+    const catKey = q._category + '選擇題';
+    if (categories[catKey]) categories[catKey].total++;
 
-    let isCorrect = false;
-    let correctAnswerText = '';
-    let userAnswerText = '';
-
-    if (q._type === 'trueFalse') {
-      isCorrect = userAns === q.answer;
-      correctAnswerText = q.answer ? '正確 (O)' : '錯誤 (X)';
-      userAnswerText = userAns === null ? '未作答' : (userAns ? '正確 (O)' : '錯誤 (X)');
-    } else {
-      isCorrect = userAns === q.answer;
-      correctAnswerText = q.options[q.answer - 1];
-      userAnswerText = userAns === null ? '未作答' : q.options[userAns - 1];
-    }
+    const isCorrect = userAns === q.answer;
+    const correctAnswerText = q.options[q.answer - 1];
+    const userAnswerText = userAns === null ? '未作答' : q.options[userAns - 1];
 
     if (userAns === null) {
       unanswered++;
     } else if (isCorrect) {
       correct++;
-      categories[catKey].correct++;
+      if (categories[catKey]) categories[catKey].correct++;
     } else {
       wrong++;
     }
-
-    // Filter out "O" as explanation (artifact from xlsx parsing)
-    let explanation = q.explanation;
-    if (explanation === 'O' || explanation === 'o') explanation = null;
 
     return {
       index: i,
       questionId: typeof q.id === 'number' ? q.id : null,
       question: q.question,
-      imagePath: q.imagePath || null,
       isCorrect,
       userAns,
       userAnswerText,
       correctAnswerText,
-      explanation,
+      explanation: q.explanation || null,
       category: q._category,
-      type: q._type,
       unanswered: userAns === null,
     };
   });
 
   const total = state.examQuestions.length;
-  const isPractice = state.examMode === 'practice';
-  const scorePoints = correct * EXAM_CONFIG.pointsPerQuestion;
   const scorePercent = total > 0 ? Math.round((correct / total) * 100) : 0;
-  const passed = !isPractice && scorePoints >= EXAM_CONFIG.passingScore;
 
   return {
-    isPractice,
-    displayScore: isPractice ? scorePercent : scorePoints,
-    scoreUnit: isPractice ? '%' : '分',
-    score: isPractice ? scorePercent : scorePoints,
+    displayScore: scorePercent,
+    scoreUnit: '%',
     correct,
     wrong,
     unanswered,
-    passed,
     categories,
     reviewData,
     totalQuestions: total,
@@ -499,31 +332,22 @@ function calculateResults() {
 // ===== Result Rendering =====
 function renderResult(results) {
   const {
-    isPractice,
     displayScore,
     scoreUnit,
     correct,
     wrong,
     unanswered,
-    passed,
     categories,
     reviewData,
   } = results;
 
-  // Icon & verdict
+  // Icon & verdict（純練習模式）
   const iconEl = $('#result-icon');
   const verdictEl = $('#result-verdict');
-  if (isPractice) {
-    iconEl.className = 'result-icon practice';
-    iconEl.textContent = '\u2714';
-    verdictEl.className = 'result-verdict practice';
-    verdictEl.textContent = '練習完成';
-  } else {
-    iconEl.className = 'result-icon ' + (passed ? 'pass' : 'fail');
-    iconEl.textContent = passed ? '\u2714' : '\u2718';
-    verdictEl.className = 'result-verdict ' + (passed ? 'pass' : 'fail');
-    verdictEl.textContent = passed ? '恭喜通過！' : '未達及格標準';
-  }
+  iconEl.className = 'result-icon practice';
+  iconEl.textContent = '\u2714';
+  verdictEl.className = 'result-verdict practice';
+  verdictEl.textContent = '練習完成';
 
   // Score
   $('#result-score').textContent = displayScore;
@@ -537,9 +361,7 @@ function renderResult(results) {
   const catContainer = $('#result-categories');
   catContainer.innerHTML = '';
   const breakdownTitle = $('.result-breakdown h2');
-  if (breakdownTitle) {
-    breakdownTitle.textContent = isPractice ? '本次練習' : '題型分析';
-  }
+  if (breakdownTitle) breakdownTitle.textContent = '本次練習';
 
   const catEntries = Object.entries(categories).filter(([, data]) => data.total > 0);
   catEntries.forEach(([name, data]) => {
@@ -585,11 +407,6 @@ function renderResult(results) {
       explanationHTML = `<div class="review-explanation">解析：${r.explanation}</div>`;
     }
 
-    const reviewQuestion = r.question.replace(/^\[圖示\]\s*/, '');
-    const reviewImgHTML = r.imagePath
-      ? `<div class="review-sign-img-wrap"><img src="${r.imagePath}" alt="題目圖示" class="review-sign-img" onerror="this.parentNode.style.display='none'"></div>`
-      : '';
-
     const div = document.createElement('div');
     div.className = `review-item ${statusClass}`;
     const reviewIdText = r.questionId !== null ? `（ID: ${r.questionId}）` : '';
@@ -598,8 +415,7 @@ function renderResult(results) {
         <span class="review-num">#${r.index + 1} ${reviewIdText}</span>
         <span class="review-result-badge ${badgeClass}">${badgeText}</span>
       </div>
-      ${reviewImgHTML}
-      <div class="review-question">${reviewQuestion}</div>
+      <div class="review-question">${r.question}</div>
       ${answersHTML}
       ${explanationHTML}
     `;
@@ -632,11 +448,6 @@ function submitExam() {
 
 // ===== Event Binding =====
 function bindEvents() {
-  dom.btnSimulation.addEventListener('click', () => {
-    generateExam();
-    showScreen(dom.screenExam);
-    renderQuestion();
-  });
 
   if (dom.practiceTypeGrid) {
     dom.practiceTypeGrid.addEventListener('click', (e) => {
@@ -678,13 +489,13 @@ function bindEvents() {
   dom.btnConfirmSubmit.addEventListener('click', submitExam);
 
   dom.btnRetry.addEventListener('click', () => {
-    if (state.examMode === 'practice' && state.practiceBankKey) {
+    if (state.practiceBankKey) {
       buildPracticeSession(state.practiceBankKey);
+      showScreen(dom.screenExam);
+      renderQuestion();
     } else {
-      generateExam();
+      showScreen(dom.screenHome);
     }
-    showScreen(dom.screenExam);
-    renderQuestion();
   });
 
   if (dom.btnResultHome) {
@@ -707,29 +518,15 @@ function bindEvents() {
 
     const q = state.examQuestions[state.currentIndex];
     if (!q) return;
-    if (q._type === 'trueFalse') {
-      if (e.key === '1' || e.key === 'o' || e.key === 'O') {
-        state.userAnswers[state.currentIndex] = true;
-        renderQuestion();
-      }
-      if (e.key === '2' || e.key === 'x' || e.key === 'X') {
-        state.userAnswers[state.currentIndex] = false;
-        renderQuestion();
-      }
-    } else {
-      const num = parseInt(e.key, 10);
-      if (num >= 1 && num <= q.options.length) {
-        state.userAnswers[state.currentIndex] = num;
-        renderQuestion();
-      }
+    const num = parseInt(e.key, 10);
+    if (num >= 1 && num <= q.options.length) {
+      state.userAnswers[state.currentIndex] = num;
+      renderQuestion();
     }
   });
 }
 
 function enableHomeButtons() {
-  dom.btnSimulation.disabled = false;
-  const txt = dom.btnSimulation.querySelector('.btn-text');
-  if (txt) txt.textContent = '模擬考試（40 題）';
   $$('.btn-practice-type').forEach((btn) => { btn.disabled = false; });
 }
 
@@ -740,9 +537,10 @@ async function init() {
     await loadQuestionBanks();
     enableHomeButtons();
   } catch (err) {
-    const txt = dom.btnSimulation.querySelector('.btn-text');
-    if (txt) txt.textContent = '題庫載入失敗';
     console.error('Failed to load question banks:', err);
+    $$('.btn-practice-type').forEach((btn) => {
+      btn.textContent = '題庫載入失敗';
+    });
   }
 }
 

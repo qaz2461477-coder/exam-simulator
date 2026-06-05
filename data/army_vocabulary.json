@@ -1,0 +1,216 @@
+{
+  "type": "multipleChoice",
+  "category": "字彙",
+  "questions": [
+    {
+      "id": 1,
+      "question": "That steel pipe cannot be bent. It is _____.",
+      "options": ["rigid", "artificial", "soft", "dirty"],
+      "answer": 1,
+      "explanation": "rigid = 堅硬的、不可彎曲的"
+    },
+    {
+      "id": 2,
+      "question": "On the first page of a newspaper, we generally find _____.",
+      "options": ["the want ads", "the death notices", "the editorial section", "the headlines"],
+      "answer": 4,
+      "explanation": "headlines = 頭條新聞，刊登於報紙頭版"
+    },
+    {
+      "id": 3,
+      "question": "You can call for your new name tag in a couple of days. (call for = ?)",
+      "options": ["write", "see", "visit", "get"],
+      "answer": 4,
+      "explanation": "call for = get (取得、領取)"
+    },
+    {
+      "id": 4,
+      "question": "The compass needle will spin around when an airplane flies over the North Pole. (spin = ?)",
+      "options": ["turn", "stop", "jump", "skip"],
+      "answer": 1,
+      "explanation": "spin = turn (旋轉)"
+    },
+    {
+      "id": 5,
+      "question": "The electrician performed his job well. (performed = ?)",
+      "options": ["liked", "got", "did", "ignored"],
+      "answer": 3,
+      "explanation": "performed = did (執行、完成)"
+    },
+    {
+      "id": 6,
+      "question": "The class may go on a picnic tomorrow. It _____ on the weather.",
+      "options": ["determines", "waits", "depends", "relies"],
+      "answer": 3,
+      "explanation": "depends on = 取決於（正確慣用語）"
+    },
+    {
+      "id": 7,
+      "question": "The repair job was complex. (complex = ?)",
+      "options": ["easy", "not completed", "complicated", "completed"],
+      "answer": 3,
+      "explanation": "complex = complicated (複雜的)"
+    },
+    {
+      "id": 8,
+      "question": "Help me work out this math problem. (work out = ?)",
+      "options": ["exercise", "read", "solve", "write"],
+      "answer": 3,
+      "explanation": "work out = solve (解決、算出)"
+    },
+    {
+      "id": 9,
+      "question": "A pharmacist is a _____.",
+      "options": ["doctor", "dentist", "farmer", "druggist"],
+      "answer": 4,
+      "explanation": "pharmacist = druggist (藥劑師)"
+    },
+    {
+      "id": 10,
+      "question": "He requested permission from the officer. (requested = ?)",
+      "options": ["received", "asked for", "gave", "looked for"],
+      "answer": 2,
+      "explanation": "requested = asked for (要求、請求)"
+    },
+    {
+      "id": 11,
+      "question": "A thermostat maintains and _____ the room temperature.",
+      "options": ["regulates", "causes", "requires", "installs"],
+      "answer": 1,
+      "explanation": "regulates = 調節、控制"
+    },
+    {
+      "id": 12,
+      "question": "This is how it actually happened. (actually = ?)",
+      "options": ["supposedly", "probably", "really", "mistakenly"],
+      "answer": 3,
+      "explanation": "actually = really (實際上)"
+    },
+    {
+      "id": 13,
+      "question": "Only people from the upper _____ of the company were there.",
+      "options": ["entrance", "stage", "echelon", "place"],
+      "answer": 3,
+      "explanation": "echelon = 階層（軍事/組織用語）"
+    },
+    {
+      "id": 14,
+      "question": "The animal died because it was underfed and _____.",
+      "options": ["overworked", "underway", "overcooked", "undercover"],
+      "answer": 1,
+      "explanation": "overworked = 過度勞累"
+    },
+    {
+      "id": 15,
+      "question": "The story should be condensed before publication. (condensed = ?)",
+      "options": ["corrected", "checked", "shortened", "retyped"],
+      "answer": 3,
+      "explanation": "condensed = shortened (縮短、濃縮)"
+    },
+    {
+      "id": 16,
+      "question": "The volcano emits smoke. (emits = ?)",
+      "options": ["mixes", "draws", "takes in", "sends out"],
+      "answer": 4,
+      "explanation": "emits = sends out (釋放、散發)"
+    },
+    {
+      "id": 17,
+      "question": "When the continent was first discovered, there were vast tracts of unexplored _____.",
+      "options": ["districts", "inhabitants", "livestock", "wilderness"],
+      "answer": 4,
+      "explanation": "wilderness = 荒野、未開墾地"
+    },
+    {
+      "id": 18,
+      "question": "The repairman checked the rotation of the fan. (rotation = ?)",
+      "options": ["installation", "taking down", "vibration", "turning"],
+      "answer": 4,
+      "explanation": "rotation = turning (旋轉)"
+    },
+    {
+      "id": 19,
+      "question": "What does it stand for? (stand for = ?)",
+      "options": ["make", "fight", "represent", "allow"],
+      "answer": 3,
+      "explanation": "stand for = represent (代表)"
+    },
+    {
+      "id": 20,
+      "question": "Jack gave a definite answer to the question. His answer was _____.",
+      "options": ["happy", "firm", "not clear", "long"],
+      "answer": 2,
+      "explanation": "definite = firm (明確的、確定的)"
+    },
+    {
+      "id": 21,
+      "question": "The plane carried cargo. (cargo = ?)",
+      "options": ["radar", "freight", "landing gear", "nothing"],
+      "answer": 2,
+      "explanation": "cargo = freight (貨物)"
+    },
+    {
+      "id": 22,
+      "question": "If a wire has a rubber covering, it is _____.",
+      "options": ["inoculated", "immobile", "immaterial", "insulated"],
+      "answer": 4,
+      "explanation": "insulated = 絕緣的"
+    },
+    {
+      "id": 23,
+      "question": "People have known about magnets for many centuries. (centuries = ?)",
+      "options": ["uses in science", "people to buy them", "countries that produce them", "hundreds of years"],
+      "answer": 4,
+      "explanation": "centuries = hundreds of years (數百年)"
+    },
+    {
+      "id": 24,
+      "question": "They work _____ in the classroom.",
+      "options": ["good", "well", "slow", "careful"],
+      "answer": 2,
+      "explanation": "work 為動詞，後接副詞 well（修飾動詞）"
+    },
+    {
+      "id": 25,
+      "question": "There is nothing but empty space above the atmosphere. This condition can be called _____.",
+      "options": ["a breeze", "atmospheric pressure", "air layers", "a vacuum"],
+      "answer": 4,
+      "explanation": "vacuum = 真空（大氣層外的空曠空間）"
+    },
+    {
+      "id": 26,
+      "question": "Tom defends himself quite well by _____.",
+      "options": ["eating a good meal", "listening closely", "fighting back", "taking a rest"],
+      "answer": 3,
+      "explanation": "defends = 防禦、保護自己，by fighting back 為合理搭配"
+    },
+    {
+      "id": 27,
+      "question": "The recurrent bad weather does not _____ well for the timely completion of the stadium.",
+      "options": ["predict", "prognosticate", "augur", "foretell"],
+      "answer": 3,
+      "explanation": "augur well/ill for = 預示吉凶（固定用法）"
+    },
+    {
+      "id": 28,
+      "question": "When you are against an idea, you _____.",
+      "options": ["oppose it", "agree with it", "don't understand it", "are trying it"],
+      "answer": 1,
+      "explanation": "against = oppose (反對)"
+    },
+    {
+      "id": 29,
+      "question": "The headlines are printed in _____.",
+      "options": ["ordinary type", "Spanish", "large type", "little letters"],
+      "answer": 3,
+      "explanation": "headlines = 頭條，以大字體（large type）印刷"
+    },
+    {
+      "id": 30,
+      "question": "Most of our woodlands are natural forests. They are _____.",
+      "options": ["not very dark", "not planted by man", "campgrounds", "cultivated"],
+      "answer": 2,
+      "explanation": "natural forests = 天然林，非人工種植（not planted by man）"
+    }
+  ]
+}
