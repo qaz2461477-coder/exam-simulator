@@ -6,8 +6,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="description" content="陸軍士官長正規班軍事美語題型練習系統 - 字彙與英翻中逐題練習，即時顯示對錯與解析">
-  <title>軍事美語題型練習系統</title>
+  <meta name="description" content="大車學科與軍事美語測驗系統 - 提供模擬正式考試流程與單元題型練習">
+  <title>綜合模擬測驗系統</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -29,24 +29,64 @@
             <defs><linearGradient id="grad1" x1="0" y1="0" x2="80" y2="80"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs>
           </svg>
         </div>
-        <h1>軍事美語題型練習系統</h1>
-        <p class="hero-subtitle">陸軍教育訓練暨準則發展指揮部<br>士官長正規班「軍事美語」測驗<br><span style="font-size: 0.9em; opacity: 0.8; display: inline-block; margin-top: 8px;">作者：黃銘晟</span></p>
+        <h1>綜合模擬測驗系統</h1>
+        <p class="hero-subtitle">大車學科測驗 ＆ 軍事美語測驗<br><span style="font-size: 0.9em; opacity: 0.8; display: inline-block; margin-top: 8px;">作者：黃銘晟</span></p>
       </div>
 
       <div class="home-start glass-card">
-        <h2 class="home-start-title">選擇題型</h2>
-        <p class="practice-mode-desc">依題庫題號順序逐題作答；選完選項後立即顯示對錯與正解。字彙 30 題、英翻中 30 題。</p>
-        <div class="practice-type-grid" id="practice-type-grid">
-          <button type="button" class="btn-practice-type" data-practice-bank="vocabulary" disabled>
-            <span class="btn-practice-badge badge-traffic">一、字彙</span>
-            <span class="btn-practice-label">英翻英選擇題</span>
-          </button>
-          <button type="button" class="btn-practice-type" data-practice-bank="translation" disabled>
-            <span class="btn-practice-badge badge-mechanical">二、英翻中</span>
-            <span class="btn-practice-label">軍事術語翻譯</span>
-          </button>
+        <h2 class="home-start-title" style="color: #6366f1;">一、大車學科測驗</h2>
+        <div class="info-text" style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">及格門檻：95 分</div>
+        <button type="button" id="btn-simulation-traffic" class="btn-primary" disabled>
+          <span class="btn-text">載入題庫中...</span>
+          <span class="btn-spinner"></span>
+        </button>
+        <p class="home-start-divider">或</p>
+        <div class="practice-mode-block">
+          <h3 class="practice-mode-heading">題型練習</h3>
+          <div class="practice-type-grid" id="practice-type-grid-traffic">
+            <button type="button" class="btn-practice-type" data-practice-bank="trafficTF" disabled>
+              <span class="btn-practice-badge badge-traffic">交通法規</span>
+              <span class="btn-practice-label">是非題</span>
+            </button>
+            <button type="button" class="btn-practice-type" data-practice-bank="trafficMC" disabled>
+              <span class="btn-practice-badge badge-traffic">交通法規</span>
+              <span class="btn-practice-label">選擇題</span>
+            </button>
+            <button type="button" class="btn-practice-type" data-practice-bank="mechanicalTF" disabled>
+              <span class="btn-practice-badge badge-mechanical">機械常識</span>
+              <span class="btn-practice-label">是非題</span>
+            </button>
+            <button type="button" class="btn-practice-type" data-practice-bank="mechanicalMC" disabled>
+              <span class="btn-practice-badge badge-mechanical">機械常識</span>
+              <span class="btn-practice-label">選擇題</span>
+            </button>
+          </div>
         </div>
       </div>
+
+      <div class="home-start glass-card" style="margin-top: 1.5rem;">
+        <h2 class="home-start-title" style="color: #a855f7;">二、軍事美語測驗</h2>
+        <div class="info-text" style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">及格門檻：85 分</div>
+        <button type="button" id="btn-simulation-army" class="btn-primary" disabled>
+          <span class="btn-text">載入題庫中...</span>
+          <span class="btn-spinner"></span>
+        </button>
+        <p class="home-start-divider">或</p>
+        <div class="practice-mode-block">
+          <h3 class="practice-mode-heading">題型練習</h3>
+          <div class="practice-type-grid" id="practice-type-grid-army">
+            <button type="button" class="btn-practice-type" data-practice-bank="vocabulary" disabled>
+              <span class="btn-practice-badge badge-traffic" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border-color: rgba(168, 85, 247, 0.3);">一、字彙</span>
+              <span class="btn-practice-label">英翻英選擇題</span>
+            </button>
+            <button type="button" class="btn-practice-type" data-practice-bank="translation" disabled>
+              <span class="btn-practice-badge badge-mechanical" style="background: rgba(236, 72, 153, 0.15); color: #f472b6; border-color: rgba(236, 72, 153, 0.3);">二、英翻中</span>
+              <span class="btn-practice-label">軍事術語翻譯</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -74,8 +114,8 @@
       <!-- 題目卡片 -->
       <div class="question-card glass-card">
         <div class="question-meta">
-          <span id="question-category" class="question-category-badge">字彙</span>
-          <span id="question-type" class="question-type-badge">選擇題</span>
+          <span id="question-category" class="question-category-badge">交通法規</span>
+          <span id="question-type" class="question-type-badge">是非題</span>
           <span id="question-number" class="question-number-badge">第 1 題</span>
         </div>
         <p id="question-text" class="question-text"></p>
