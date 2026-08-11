@@ -62,6 +62,31 @@ body::before {
     radial-gradient(ellipse 50% 40% at 80% 80%, hsla(270, 70%, 50%, 0.06) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
+  animation: ambientDrift 16s ease-in-out infinite alternate;
+}
+
+@keyframes ambientDrift {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-2%, 2%) scale(1.05); }
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: hsla(220, 20%, 40%, 0.4);
+  border-radius: 100px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover { background: hsla(240, 60%, 60%, 0.5); background-clip: padding-box; }
+html { scrollbar-color: hsla(220, 20%, 40%, 0.4) transparent; scrollbar-width: thin; }
+
+/* ===== Focus visibility (keyboard nav) ===== */
+button:focus-visible,
+.option-btn:focus-visible {
+  outline: 2px solid var(--accent-1);
+  outline-offset: 2px;
 }
 
 /* ===== Utility ===== */
@@ -72,6 +97,14 @@ body::before {
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.home-start.glass-card:hover,
+.result-hero.glass-card:hover,
+.result-breakdown.glass-card:hover,
+.result-review.glass-card:hover {
+  border-color: var(--border-glow);
+  box-shadow: var(--shadow-md);
 }
 
 .screen {
@@ -304,7 +337,10 @@ body::before {
 .btn-practice-type:hover:not(:disabled) {
   border-color: var(--border-glow);
   background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
+.btn-practice-type:active:not(:disabled) { transform: translateY(0) scale(0.98); }
 .btn-practice-type:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -385,6 +421,7 @@ body::before {
   background: var(--bg-card-hover);
   border-color: var(--border-glow);
 }
+.btn-secondary:active { transform: scale(0.98); }
 
 /* ===== Exam Screen ===== */
 .exam-container {
@@ -451,6 +488,7 @@ body::before {
   color: var(--text-primary);
   border-color: var(--border-glow);
 }
+.btn-icon:active { transform: scale(0.92); }
 .btn-icon.flagged {
   color: var(--color-flag);
   border-color: var(--color-flag);
@@ -548,6 +586,7 @@ body::before {
   background: var(--bg-card-hover);
   transform: translateX(4px);
 }
+.option-btn:active:not(:disabled) { transform: translateX(4px) scale(0.99); }
 
 .option-btn.selected {
   border-color: var(--accent-1);
@@ -645,6 +684,7 @@ body::before {
   border-color: var(--border-glow);
   background: var(--bg-card-hover);
 }
+.btn-nav:active:not(:disabled) { transform: scale(0.97); }
 .btn-nav:disabled {
   opacity: 0.35;
   cursor: not-allowed;
